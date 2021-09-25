@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/*! -------------------- global settings -------------------- */
+:root {
+    font-size: 62.5%;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+* {
+	box-sizing: inherit;
+	padding: 0;
+	border: 0;
+	margin: 0;
+}
+
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-weight: normal;
+    position: relative;
+	color: red;
+}
+
+.global-container {
+    margin: 0 30px 0 30px;
+    min-height: 100vh;
+    overflow: hidden;
+    padding-bottom: 62px; /*? Height of the footer */
+}
+
+/*! -------------------- global header -------------------- */
+header {
+	margin: 36.1px auto 0 auto;
+	max-width: 940px;
+	display: grid;
+	grid-template-columns: 0fr 0fr 0fr;
+}
+
+header a {
+	text-decoration: none;
+	font-size: 1.6rem;
+	color: #111;
+    align-self: center;
+}
+
+header a:nth-child(2) {
+	margin-left: 122.4px;
+}
+
+header a:nth-child(3) {
+	margin-left: 30px;
+}
+
+/*! -------------------- global footer -------------------- */
+footer {
+	width: 100%;
+	height: 62px;
+	position: absolute;
+	bottom: 0;
+	background: #eee;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+}
+
+footer p {
+	font-size: 1.4rem;
+    color: #999;
+}
+
+/*! -------------------- index ads -------------------- */
+.index-ads {
+	margin: 30px auto 0 auto;
+	max-width: 940px;
+	min-height: 366px;
+	background-color: #fbdfdb;
+	border-radius: 30px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.index-ads_info {
+    align-self: center;
+}
+
+.index-ads_info p {
+    max-width: 316px;
+    margin-left: 60px;
+}
+
+.index-ads_info p:nth-child(1) {
+    font-size: 3.2rem;
+	font-weight: bold;
+	color: #111;
+}
+
+.index-ads_info p:nth-child(2) {
+    margin-top: 10px;
+	font-size: 1.8rem;
+	color: #000;
+	opacity: 0.7;
+}
+
+.index-ads img {
+    margin-right: 100px;
+	width: 216px;
+	height: 300px;
+    justify-self: end;
+    align-self: end;
+}
+
+/*! -------------------- index most viewed -------------------- */
+.index-most_viewed {
+	margin: 50px auto 0 auto;
+	max-width: 940px;
+	font-size: 2.4rem;
+	font-weight: bold;
+	color: #111;
+}
+
+/*! -------------------- index recipes -------------------- */
+.index-recipes_container {
+	margin: 20px auto 50px auto;
+	max-width: 940px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+	grid-template-rows: auto auto;
+	gap: 30px 20px;
+	font-size: 4rem;
+}
+
+.index-recipe_image img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	border-radius: 15px;
+}
+
+.index-recipe_info {
+    margin-top: 10px;
+	font-size: 1.8rem;
+	color: #111;
+}
+
+.index-recipe_chef {
+    margin-top: 5px;
+	font-size: 1.4rem;
+	color: #777;
+}
