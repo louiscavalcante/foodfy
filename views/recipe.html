@@ -16,10 +16,10 @@
 <main class="recipe-main_container">
 	<div class="recipe-ingredients">
 		<p>Ingredientes</p>
-		<p>ESCONDER</p>
+		<p class="btn">ESCONDER</p>
 	</div>
 
-	<ul class="recipe-ingredients_content">
+	<ul class="recipe-ingredients_content hideThis">
 		{% for ingredients in recipe.ingredients %}
 		<li>{{ ingredients }}</li>
 		{% endfor %}
@@ -27,10 +27,10 @@
 
 	<div class="recipe-preparation">
 		<p>Modo de prepararo</p>
-		<p>ESCONDER</p>
+		<p class="btn">ESCONDER</p>
 	</div>
 
-	<div class="recipe-preparation_content">
+	<div class="recipe-preparation_content hideThis">
 		{% for preparation in recipe.preparation %}
 		<p>{{ preparation }}</p>
 		{% endfor %}
@@ -38,12 +38,16 @@
 
 	<div class="recipe-information">
 		<p>Informações adicionais</p>
-		<p>ESCONDER</p>
+		<p class="btn">ESCONDER</p>
 	</div>
 
-	<div class="recipe-information_content">
+	<div class="recipe-information_content hideThis">
 		<p>{{ recipe.information }}</p>
 	</div>
 </main>
 
+{% endblock %}
+
+{% block script %}
+<script src="/scripts.js"></script>
 {% endblock %}

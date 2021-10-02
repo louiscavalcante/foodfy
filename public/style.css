@@ -86,7 +86,7 @@ footer p {
 #not-found h2 {
 	text-align: center;
 	font-size: 50px;
-    color: #111;
+	color: #111;
 	font-family: 'Roboto', sans-serif;
 }
 
@@ -131,15 +131,6 @@ footer p {
 	align-self: end;
 }
 
-/*! -------------------- index most viewed -------------------- */
-/* .index-most_viewed {
-	margin: 50px auto 0 auto;
-	max-width: 940px;
-	font-size: 2.4rem;
-	font-weight: bold;
-	color: #111;
-} */
-
 /*! -------------------- index recipes -------------------- */
 .index-recipes_container {
 	margin: 50px auto 50px auto;
@@ -151,7 +142,7 @@ footer p {
 }
 
 .index-recipe {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .index-recipe_image img {
@@ -171,6 +162,23 @@ footer p {
 	margin-top: 5px;
 	font-size: 1.4rem;
 	color: #777;
+}
+
+/*! -------------------- index media queries -------------------- */
+@media screen and (max-width: 415px) {
+	.index-ads {
+		grid-template-columns: 1fr;
+		min-height: 525px;
+	}
+	.index-ads_info p {
+		margin-left: initial;
+		margin: 30px auto 0 auto;
+	}
+
+	.index-ads img {
+		margin-right: initial;
+		justify-self: center;
+	}
 }
 
 /*! -------------------- about -------------------- */
@@ -231,7 +239,7 @@ footer p {
 }
 
 .recipes-recipe {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .recipes-recipe_image img {
@@ -253,7 +261,7 @@ footer p {
 	color: #777;
 }
 
-/*! -------------------- recipe -------------------- */  
+/*! -------------------- recipe -------------------- */
 .recipe-image_container {
 	margin: 47px auto 0 auto;
 	max-width: 940px;
@@ -268,93 +276,102 @@ footer p {
 
 .recipe-recipe_info {
 	margin-top: 50px;
-    display: grid;
-    justify-content: center;
-    text-align: center;
+	display: grid;
+	justify-content: center;
+	text-align: center;
 }
 
 .recipe-recipe_info p:nth-child(1) {
-    font-size: 3.6rem;
-    font-weight: bold;
-    color: #111;
+	font-size: 3.6rem;
+	font-weight: bold;
+	color: #111;
 }
 
 .recipe-recipe_info p:nth-child(2) {
-    margin-top: 4px;
-    font-size: 2.0rem;
-    color: #777;
+	margin-top: 4px;
+	font-size: 2rem;
+	color: #777;
 }
 
 .recipe-main_container {
-    margin: 50px auto 50px auto;
-    max-width: 940px;
+	margin: 50px auto 50px auto;
+	max-width: 940px;
 }
 
 .recipe-ingredients {
-    font-size: 2.4rem;
-    font-weight: bold;
-    color: #111;
-    display: flex;
+	font-size: 2.4rem;
+	font-weight: bold;
+	color: #111;
+	display: flex;
 }
 
 .recipe-ingredients p:nth-child(2) {
-    margin-left: 8px;
-    font-size: 1.2rem;
-    color: #999;
-    align-self: flex-end;
-    padding-bottom: 3px;
+	margin-left: 8px;
+	font-size: 1.2rem;
+	color: #999;
+	align-self: flex-end;
+	padding-bottom: 3px;
 }
 
 .recipe-ingredients_content {
-    margin-top: 20px;
-    font-size: 1.8rem;
-    line-height: 2.8rem;
-    color: #444;
-    list-style-position: inside;
+	margin-top: 20px;
+	font-size: 1.8rem;
+	line-height: 2.8rem;
+	color: #444;
+	list-style-position: inside;
 }
 
 .recipe-preparation {
-    margin-top: 39px;
-    font-size: 2.4rem;
-    font-weight: bold;
-    color: #111;
-    display: flex;
+	margin-top: 39px;
+	font-size: 2.4rem;
+	font-weight: bold;
+	color: #111;
+	display: flex;
 }
 
 .recipe-preparation p:nth-child(2) {
-    margin-left: 8px;
-    font-size: 1.2rem;
-    color: #999;
-    align-self: flex-end;
-    padding-bottom: 3px;
+	margin-left: 8px;
+	font-size: 1.2rem;
+	color: #999;
+	align-self: flex-end;
+	padding-bottom: 3px;
 }
 
 .recipe-preparation_content {
-    margin-top: 20px;
-    font-size: 1.8rem;
-    line-height: 2.8rem;
-    color: #444;
+	margin-top: 20px;
+	font-size: 1.8rem;
+	line-height: 2.8rem;
+	color: #444;
 }
 
 .recipe-information {
-    margin-top: 39px;
-    font-size: 2.4rem;
-    font-weight: bold;
-    color: #111;
-    display: flex;
+	margin-top: 39px;
+	font-size: 2.4rem;
+	font-weight: bold;
+	color: #111;
+	display: flex;
 }
 
 .recipe-information p:nth-child(2) {
-    margin-left: 8px;
-    font-size: 1.2rem;
-    color: #999;
-    align-self: flex-end;
-    padding-bottom: 3px;
+	margin-left: 8px;
+	font-size: 1.2rem;
+	color: #999;
+	align-self: flex-end;
+	padding-bottom: 3px;
 }
 
 .recipe-information_content {
-    font-size: 1.8rem;
-    line-height: 2.8rem;
-    color: #444;
-    white-space: pre-line;
+	margin-top: -0.8rem;
+	font-size: 1.8rem;
+	line-height: 2.8rem;
+	color: #444;
+	white-space: pre-line;
+}
+
+.btn {
+	cursor: pointer;
+}
+
+.hide {
+	display: none;
 }
