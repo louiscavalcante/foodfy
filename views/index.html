@@ -1,0 +1,38 @@
+{% extends 'layout.html' %} {% block head %}
+<title>Index - Foodfy</title>
+{% endblock %} {% block content %}
+
+<section class="index-ads">
+	<div class="index-ads_info">
+		<p>As melhores receitas</p>
+		<p>
+			Aprenda a construir os melhores pratos com receitas criadas por profissionais do mundo
+			inteiro.
+		</p>
+	</div>
+	<img src="/assets/chef.png" alt="Chef" srcset="" />
+</section>
+
+{#
+<section class="index-most_viewed">Mais acessadas</section>
+#}
+
+<main class="index-recipes_container">
+	{% for recipe in recipes %}
+	<div class="index-recipe" data-recipe_id="{{ recipes.indexOf(recipe) }}">
+		<div class="index-recipe_image">
+			<img src="{{ recipe.image }}" alt="Imagem de {{ recipe.title }}" />
+		</div>
+		<div class="index-recipe_info">
+			<p>{{ recipe.title }}</p>
+		</div>
+		<div class="index-recipe_chef">
+			<p>por {{ recipe.author }}</p>
+		</div>
+	</div>
+	{% endfor %}
+</main>
+
+{% endblock %} {% block script %}
+<script src="/scripts.js"></script>
+{% endblock%}
