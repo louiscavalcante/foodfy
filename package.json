@@ -4,7 +4,8 @@
 	"description": "",
 	"main": "server.js",
 	"scripts": {
-		"start": "npm-run-all -p nodemon browser-sync",
+		"start": "node server.js",
+		"dev": "npm-run-all -p nodemon browser-sync",
 		"nodemon": "nodemon server.js",
 		"browser-sync": "browser-sync start --proxy http://localhost:5000 --files 'public, views'"
 	},
