@@ -2,7 +2,7 @@ const express = require('express')
 const nunjucks = require('nunjucks')
 
 const server = express()
-const PORT = 5000
+const PORT = process.env.PORT || 5000
 const data = require('./data.js')
 
 server.use(express.static('public'))
