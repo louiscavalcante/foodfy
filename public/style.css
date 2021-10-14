@@ -7,7 +7,7 @@
 
 html {
 	box-sizing: border-box;
-    overflow-y: scroll;
+	overflow-y: scroll;
 }
 
 * {
@@ -37,25 +37,25 @@ body {
 }
 
 /*! -------------------- global header -------------------- */
-header {
+.global-header_container header {
 	margin: 36.1px auto 0 auto;
 	max-width: 940px;
 	display: grid;
 	grid-template-columns: 0fr 0fr 0fr;
 }
 
-header a {
+.global-header_container header a {
 	text-decoration: none;
 	font-size: 1.6rem;
 	color: #111;
 	align-self: center;
 }
 
-header a:nth-child(2) {
+.global-header_container header a:nth-child(2) {
 	margin-left: 122.4px;
 }
 
-header a:nth-child(3) {
+.global-header_container header a:nth-child(3) {
 	margin-left: 30px;
 }
 
@@ -375,4 +375,62 @@ footer p {
 
 .hide {
 	display: none;
+}
+
+/*! -------------------- admin header -------------------- */
+.admin-header_container {
+	padding: 25px 0 26.1px 0;
+	background-color: #111;
+	align-self: center;
+}
+.admin-header_container header {
+	margin: 0 auto 0 auto;
+	max-width: 940px;
+}
+
+.admin-header_container header a {
+	text-decoration: none;
+	font-size: 1.6rem;
+	filter: invert(100%);
+	align-self: center;
+}
+
+/*! -------------------- index recipes -------------------- */
+.admin-index-manage_recipes {
+    margin: 50px auto 0 auto;
+    max-width: 940px;
+    font-weight: bold;
+    font-size: 2.4rem;
+    color: #111;
+}
+.admin-index-recipes_container {
+	margin: 30px auto 50px auto;
+	max-width: 940px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+	gap: 30px 20px;
+	font-size: 4rem;
+}
+
+.admin-index-recipe {
+	cursor: pointer;
+}
+
+.admin-index-recipe_image img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	border-radius: 15px;
+}
+
+.admin-index-recipe_info {
+	margin-top: 10px;
+	font-size: 1.8rem;
+	color: #111;
+}
+
+.admin-index-recipe_chef {
+	margin-top: 5px;
+	font-size: 1.4rem;
+	color: #777;
 }

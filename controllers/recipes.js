@@ -8,16 +8,15 @@ exports.index = function (req, res) {
 	function splitFunc(recipe) {
 		let recipesFormatted = {
 			...recipe,
-			school_year: grade(recipe.school_year),
 		}
 		return recipesFormatted
 	}
 
-	return res.render('recipes/index', { recipes: newRecipes })
+	return res.render('admin/recipes/index', { recipes: newRecipes })
 }
 
 exports.create = function (req, res) {
-	return res.render('recipes/create')
+	return res.render('admin/recipes/create')
 }
 
 exports.post = function (req, res) {
@@ -29,7 +28,7 @@ exports.post = function (req, res) {
 		}
 	}
 
-	let {  } = req.body
+	let {} = req.body
 
 	let id = 1
 	const lastRecipe = data.recipes[data.recipes.length - 1]
@@ -44,7 +43,7 @@ exports.post = function (req, res) {
 	fs.writeFile('data.json', JSON.stringify(data, null, 4), function (err) {
 		if (err) return res.send('Write file error!')
 
-		return res.redirect('/recipes')
+		return res.redirect('/admin/recipes')
 	})
 }
 
@@ -59,12 +58,9 @@ exports.show = function (req, res) {
 
 	const recipe = {
 		...foundRecipe,
-		birth: date(foundRecipe.birth).birthDay,
-		school_year: grade(foundRecipe.school_year),
-		created_at: new Intl.DateTimeFormat('pt-BR').format(foundRecipe.created_at),
 	}
 
-	return res.render('recipes/show', { recipe: recipe })
+	return res.render('admin/recipes/show', { recipe: recipe })
 }
 
 exports.edit = function (req, res) {
@@ -78,10 +74,9 @@ exports.edit = function (req, res) {
 
 	const recipe = {
 		...foundRecipe,
-		birth: date(foundRecipe.birth).iso,
 	}
 
-	return res.render('recipes/edit', { recipe: recipe })
+	return res.render('admin/recipes/edit', { recipe: recipe })
 }
 
 exports.put = function (req, res) {
@@ -100,7 +95,6 @@ exports.put = function (req, res) {
 	const recipe = {
 		...foundRecipe,
 		...req.body,
-		birth: Date.parse(req.body.birth),
 		id: Number(req.body.id),
 	}
 
@@ -109,7 +103,7 @@ exports.put = function (req, res) {
 	fs.writeFile('data.json', JSON.stringify(data, null, 4), function (err) {
 		if (err) return res.send('Write file error!')
 
-		return res.redirect(`/recipes/${id}`)
+		return res.redirect(`/admin/recipes/${id}`)
 	})
 }
 
@@ -126,5 +120,5 @@ exports.delete = function (req, res) {
 		if (err) return res.send('Write file error!')
 	})
 
-	return res.redirect('/recipes')
+	return res.redirect('/admin/recipes')
 }
