@@ -3,19 +3,19 @@ const routes = express.Router()
 const recipes = require('./controllers/recipes.js')
 const data = require('./data.json')
 
-server.get('/', function (req, res) {
+routes.get('/', function (req, res) {
 	return res.render('index', { recipes: data.recipes })
 })
 
-server.get('/about', function (req, res) {
+routes.get('/about', function (req, res) {
 	return res.render('about')
 })
 
-server.get('/recipes', function (req, res) {
+routes.get('/recipes', function (req, res) {
 	return res.render('recipes', { recipes: data.recipes })
 })
 
-server.get('/recipes/:index', function (req, res) {
+routes.get('/recipes/:index', function (req, res) {
 	const recipes = [...data.recipes]
 	const recipeIndex = req.params.index
 
@@ -35,7 +35,7 @@ routes.post('/admin/recipes', recipes.post)
 routes.put('/admin/recipes', recipes.put)
 routes.delete('/admin/recipes', recipes.delete)
 
-server.use(function (req, res) {
+routes.use(function (req, res) {
 	res.status(404).render('not-found')
 })
 
