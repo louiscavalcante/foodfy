@@ -1,4 +1,4 @@
-//! -------------------- index recipes click redirect
+//! -------------------- index recipes - click redirect
 const index_recipes = document.querySelectorAll('.index-recipe')
 const recipes_recipes = document.querySelectorAll('.recipes-recipe')
 
@@ -14,7 +14,7 @@ function recipeHrefParams(recipes) {
 recipeHrefParams(index_recipes)
 recipeHrefParams(recipes_recipes)
 
-//! -------------------- admin index recipes click redirect
+//! -------------------- admin index - recipes click redirect
 const admin_index_recipes = document.querySelectorAll('.admin-index-recipe')
 
 function adminRecipeHrefParams(recipes) {
@@ -28,7 +28,7 @@ function adminRecipeHrefParams(recipes) {
 
 adminRecipeHrefParams(admin_index_recipes)
 
-//! -------------------- buttons click hide
+//! -------------------- about - buttons click hide
 const hideButtons = document.querySelectorAll('.btn')
 
 for (let btn of hideButtons) {
@@ -53,3 +53,22 @@ formDelete.addEventListener('click', function (event) {
 		event.preventDefault()
 	}
 })
+
+//todo add buttons -------------------- 
+//! -------------------- admin edit - add buttons
+function addIngredient() {
+	const ingredients = document.querySelector('#ingredients')
+	const fieldContainer = document.querySelectorAll('.admin-edit-ingredients_content')
+
+	// Realiza um clone do último ingrediente adicionado
+	const newField = fieldContainer[fieldContainer.length - 1].cloneNode(true)
+
+	// Não adiciona um novo input se o último tem um valor vazio
+	if (newField.children[0].value == '') return false
+
+	// Deixa o valor do input vazio
+	newField.children[0].value = ''
+	ingredients.appendChild(newField)
+}
+
+document.querySelector('.add-ingredient').addEventListener('click', addIngredient)

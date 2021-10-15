@@ -15,10 +15,12 @@ exports.index = function (req, res) {
 	return res.render('admin/recipes/index', { recipes: newRecipes })
 }
 
+//todo create --------------------
 exports.create = function (req, res) {
 	return res.render('admin/recipes/create')
 }
 
+//todo post --------------------
 exports.post = function (req, res) {
 	const keys = Object.keys(req.body)
 
@@ -70,22 +72,15 @@ exports.edit = function (req, res) {
 }
 
 exports.put = function (req, res) {
-	const { id } = req.body
-	let index = 0
-
-	const foundRecipe = data.recipes.find(function (recipe, foundIndex) {
-		if (id == recipe.id) {
-			index = foundIndex
-			return true
-		}
-	})
-
-	if (!foundRecipe) return res.send('Recipe not found!')
+	const { id, image, ingredients, preparation, information } = req.body
+	let index = id
 
 	const recipe = {
-		...foundRecipe,
-		...req.body,
-		id: Number(req.body.id),
+		...data.recipes[index],
+		image,
+		ingredients,
+		preparation,
+		information,
 	}
 
 	data.recipes[index] = recipe
@@ -97,11 +92,12 @@ exports.put = function (req, res) {
 	})
 }
 
+//todo delete --------------------
 exports.delete = function (req, res) {
 	const { id } = req.body
 
 	const filteredRecipes = data.recipes.filter(function (recipe) {
-		return recipe.id != id
+		return recipe != id
 	})
 
 	data.recipes = filteredRecipes
