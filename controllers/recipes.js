@@ -48,35 +48,25 @@ exports.post = function (req, res) {
 }
 
 exports.show = function (req, res) {
-	const { id } = req.params
+	const recipes = [...data.recipes]
+	const recipeId = req.params.id
 
-	const foundRecipe = data.recipes.find(function (recipe) {
-		return recipe.id == id
-	})
-
-	if (!foundRecipe) return res.send('Recipe not found!')
-
-	const recipe = {
-		...foundRecipe,
+	if (recipeId in recipes) {
+		return res.render('admin/recipes/show', { recipe: recipes[recipeId], id: recipeId })
+	} else {
+		return res.status(404).render('not-found')
 	}
-
-	return res.render('admin/recipes/show', { recipe: recipe })
 }
 
 exports.edit = function (req, res) {
-	const { id } = req.params
+	const recipes = [...data.recipes]
+	const recipeId = req.params.id
 
-	const foundRecipe = data.recipes.find(function (recipe) {
-		return recipe.id == id
-	})
-
-	if (!foundRecipe) return res.send('Recipe not found!')
-
-	const recipe = {
-		...foundRecipe,
+	if (recipeId in recipes) {
+		return res.render('admin/recipes/edit', { recipe: recipes[recipeId], id: recipeId })
+	} else {
+		return res.status(404).render('not-found')
 	}
-
-	return res.render('admin/recipes/edit', { recipe: recipe })
 }
 
 exports.put = function (req, res) {

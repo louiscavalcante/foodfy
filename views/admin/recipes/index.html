@@ -1,5 +1,6 @@
-{% extends 'admin/recipes/layout.html' %}
-{% block content %}
+{% extends 'admin/recipes/layout.html' %} {% block head %}
+<title>Index - Foodfy Admin</title>
+{% endblock %} {% block content %}
 
 <div class="admin-index-manage_recipes">Gerenciar receitas</div>
 
@@ -9,17 +10,15 @@
 		<div class="admin-index-recipe_image">
 			<img src="{{ recipe.image }}" alt="Imagem de {{ recipe.title }}" />
 		</div>
-		<div class="admin-index-recipe_info">
+		<div class="admin-index-recipe_info_container">
 			<p>{{ recipe.title }}</p>
-		</div>
-		<div class="admin-index-recipe_chef">
 			<p>por {{ recipe.author }}</p>
+			<div class="admin-index-recipe_info_show">
+				<a href="/admin/recipes/{{ recipes.indexOf(recipe) }}">Visualizar</a>
+			</div>
 		</div>
 	</div>
 	{% endfor %}
 </main>
 
 {% endblock %}
-
-{% block script %}
-{% endblock%}
