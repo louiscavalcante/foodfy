@@ -170,6 +170,7 @@ footer p {
 		grid-template-columns: 1fr;
 		min-height: 525px;
 	}
+
 	.index-ads_info p {
 		margin-left: initial;
 		margin: 30px auto 0 auto;
@@ -454,6 +455,7 @@ footer p {
 		display: grid;
 		grid-template-columns: 1fr;
 	}
+
 	.admin-index-recipe {
 		display: grid;
 		grid-template-columns: 1fr;
