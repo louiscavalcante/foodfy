@@ -19,7 +19,6 @@ exports.create = function (req, res) {
 	return res.render('admin/recipes/create')
 }
 
-//todo post --------------------
 exports.post = function (req, res) {
 	const keys = Object.keys(req.body)
 
@@ -29,16 +28,17 @@ exports.post = function (req, res) {
 		}
 	}
 
-	let {} = req.body
-
-	let id = 1
-	const lastRecipe = data.recipes[data.recipes.length - 1]
-	if (lastRecipe) {
-		id = lastRecipe.id + 1
-	}
+	const { image, ingredients, preparation, information } = req.body
+	const title = 'Recipe Name'
+	const author = 'Admin'
 
 	data.recipes.push({
-		id,
+		image,
+		title,
+		author,
+		ingredients: [ingredients],
+		preparation: [preparation],
+		information,
 	})
 
 	fs.writeFile('data.json', JSON.stringify(data, null, 4), function (err) {
@@ -95,9 +95,9 @@ exports.delete = function (req, res) {
 	const { id } = req.body
 
 	const filteredRecipes = data.recipes.filter(function (element, index, arr) {
-        return arr[index] != arr[id]
+		return arr[index] != arr[id]
 	})
-    
+
 	data.recipes = filteredRecipes
 
 	fs.writeFile('data.json', JSON.stringify(data, null, 4), function (err) {

@@ -728,4 +728,138 @@ footer p {
     line-height: 2.4rem;
     font-family: 'Roboto', sans-serif;
     resize: none;
+    outline: none;
+}
+
+/*! -------------------- admin create -------------------- */
+.admin-create-button_container {
+	margin: 50px auto 0 auto;
+	max-width: 940px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.admin-create-button_container p {
+	font-size: 2.4rem;
+	font-weight: bold;
+	color: #111;
+}
+
+.admin-create-buttons {
+    justify-self: end;
+}
+
+.admin-create-buttons button {
+	padding: 9px 20px;
+	background-color: #6558c3;
+	border-radius: 4px;
+	color: #fff;
+	font-size: 1.6rem;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+}
+
+.admin-create-main_container {
+	margin: 26px auto 50px auto;
+	max-width: 940px;
+}
+
+.admin-create-image {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #111;
+}
+
+.admin-create-image_content input {
+    margin-top: 10px;
+    padding: 15px 20px;
+    width: 100%;
+    border: 1px solid #DDD;
+    border-radius: 4px;
+    font-size: 1.6rem;
+    color: #111;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.admin-create-ingredients {
+    margin-top: 30px;
+    font-size: 1.6rem;
+    color: #111;
+    font-weight: bold;
+}
+
+.admin-create-ingredients_content input {
+    margin-top: 10px;
+    padding: 15px 20px;
+    width: 100%;
+    border: 1px solid #DDD;
+    border-radius: 4px;
+    font-size: 1.6rem;
+    color: #111;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.admin-create-add_new_ingredient button {
+    margin-top: 15px;
+    font-size: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #6558c3;
+    text-align: right;
+    background-color: #FFF;
+    cursor: pointer;
+}
+
+.admin-create-preparation {
+    margin-top: 30px;
+    font-size: 1.6rem;
+    color: #111;
+    font-weight: bold;
+}
+
+.admin-create-preparation_content input {
+    margin-top: 10px;
+    padding: 15px 20px;
+    width: 100%;
+    border: 1px solid #DDD;
+    border-radius: 4px;
+    font-size: 1.6rem;
+    color: #111;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.admin-create-add_new_preparation button {
+    margin-top: 15px;
+    font-size: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #6558c3;
+    text-align: right;
+    background-color: #FFF;
+    cursor: pointer;
+}
+
+.admin-create-information {
+    margin-top: 30px;
+    font-size: 1.6rem;
+    color: #111;
+    font-weight: bold;
+}
+
+.admin-create-information_content textarea {
+    margin-top: 10px;
+    padding: 10px 20px;
+    width: 100%;
+    min-height: 257px;
+    border-radius: 4px;
+    border: 1px solid #DDDD;
+    font-size: 1.6rem;
+    color: #111;
+    line-height: 2.4rem;
+    font-family: 'Roboto', sans-serif;
+    resize: none;
+    outline: none;
 }
