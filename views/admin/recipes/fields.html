@@ -11,7 +11,7 @@
 		<p>Ingredientes</p>
 	</div>
 
-	<div id="ingredients">
+	<div id="admin-edit-ingredients_node">
 		<div class="admin-edit-ingredients_content">
 			{% for ingredients in recipe.ingredients %}
 			<input type="text" name="ingredients" value="{{ ingredients }}" />
@@ -20,21 +20,23 @@
 	</div>
 
 	<div class="admin-edit-add_new_ingredient">
-		<button type="button" class="add-ingredient">Adicionar novo ingrediente</button>
+		<button type="button" class="admin-edit-btn_add_ingredient">Adicionar novo ingrediente</button>
 	</div>
 
 	<div class="admin-edit-preparation">
 		<p>Modo de prepararo</p>
 	</div>
 
-	<div class="admin-edit-preparation_content">
-		{% for preparation in recipe.preparation %}
-		<input type="text" name="preparation" value="{{ preparation }}" />
-		{% endfor %}
+	<div id="admin-edit-preparation_node">
+		<div class="admin-edit-preparation_content">
+			{% for preparation in recipe.preparation %}
+			<input type="text" name="preparation" value="{{ preparation }}" />
+			{% endfor %}
+		</div>
 	</div>
 
 	<div class="admin-edit-add_new_preparation">
-		<button type="button" class="add-preparation">Adicionar novo passo</button>
+		<button type="button" class="admin-edit-btn_add_preparation">Adicionar novo passo</button>
 	</div>
 
 	<div class="admin-edit-information">

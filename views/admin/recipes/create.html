@@ -24,26 +24,28 @@
 			<p>Ingredientes</p>
 		</div>
 
-		<div id="ingredients">
+		<div id="admin-create-ingredients_node">
 			<div class="admin-create-ingredients_content">
-				<input type="text" name="ingredients" />
+				<input type="text" name="ingredients" value="" />
 			</div>
 		</div>
 
 		<div class="admin-create-add_new_ingredient">
-			<button type="button" class="add-ingredient">Adicionar novo ingrediente</button>
+			<button type="button" class="admin-create-btn_add_ingredient">Adicionar novo ingrediente</button>
 		</div>
 
 		<div class="admin-create-preparation">
 			<p>Modo de prepararo</p>
 		</div>
 
-		<div class="admin-create-preparation_content">
-			<input type="text" name="preparation" />
+		<div id="admin-create-preparation_node">
+			<div class="admin-create-preparation_content">
+				<input type="text" name="preparation" value="" />
+			</div>
 		</div>
 
 		<div class="admin-create-add_new_preparation">
-			<button type="button" class="add-preparation">Adicionar novo passo</button>
+			<button type="button" class="admin-create-btn_add_preparation">Adicionar novo passo</button>
 		</div>
 
 		<div class="admin-create-information">
@@ -54,7 +56,6 @@
 			<textarea name="information">{{ recipe.information }}</textarea>
 		</div>
 	</main>
-
 </form>
 
 {% endblock %}
