@@ -15,7 +15,6 @@ exports.index = function (req, res) {
 	return res.render('admin/recipes/index', { recipes: newRecipes })
 }
 
-//todo create --------------------
 exports.create = function (req, res) {
 	return res.render('admin/recipes/create')
 }
@@ -92,14 +91,13 @@ exports.put = function (req, res) {
 	})
 }
 
-//todo delete --------------------
 exports.delete = function (req, res) {
 	const { id } = req.body
 
-	const filteredRecipes = data.recipes.filter(function (recipe) {
-		return recipe != id
+	const filteredRecipes = data.recipes.filter(function (element, index, arr) {
+        return arr[index] != arr[id]
 	})
-
+    
 	data.recipes = filteredRecipes
 
 	fs.writeFile('data.json', JSON.stringify(data, null, 4), function (err) {
