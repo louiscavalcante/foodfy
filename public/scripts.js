@@ -104,19 +104,20 @@ if (createAddPreparationButton) {
 const editAddIngredientButton = document.querySelector('.admin-edit-btn_add_ingredient')
 
 function editAddIngredient() {
-	const ingredients = document.querySelector('#admin-edit-ingredients_node')
-	const fieldContainer = document.querySelectorAll('.admin-edit-ingredients_content')
+	let ingredients = document.querySelector('.admin-edit-ingredients_content')
+	let fieldContainer = document.querySelectorAll('.admin-edit-ingredients_input')
 
 	// Realiza um clone do último ingrediente adicionado
 	let newField = fieldContainer[fieldContainer.length - 1].cloneNode(true)
 
 	// Deixa o valor do input vazio
-	newField.children[0].value = ''
-    ingredients.appendChild(newField.item(1))
-    
-	// Não adiciona um novo input se o último tem um valor vazio
-	if (newField.children[0].value == '') return false
+	newField.setAttribute('value', '')
+    newField.value = ''
 
+	// Não adiciona um novo input se o último tem um valor vazio
+	if (fieldContainer[fieldContainer.length - 1].value == '') return false
+
+	ingredients.appendChild(newField)
 }
 
 if (editAddIngredientButton) {
