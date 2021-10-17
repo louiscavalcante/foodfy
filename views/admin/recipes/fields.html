@@ -1,0 +1,59 @@
+<main class="admin-edit-main_container">
+	<div class="admin-edit-image">
+		<p>Imagem da receita</p>
+	</div>
+
+	<div class="admin-edit-image_content">
+		<input type="url" name="image" value="{{ recipe.image }}" />
+	</div>
+
+	<div class="admin-edit-ingredients">
+		<p>Ingredientes</p>
+	</div>
+
+	<div class="admin-edit-ingredients_content add-ingredients-node">
+		{% for ingredients in recipe.ingredients %}
+		<input
+			class="add-ingredients-input"
+			type="text"
+			name="ingredients"
+			value="{{ ingredients }}"
+            placeholder="Escreva antes de adicionar novo"
+		/>
+		{% endfor %}
+	</div>
+
+	<div class="admin-edit-add_new_ingredient">
+		<button type="button" class="add-ingredients">Adicionar novo ingrediente</button>
+	</div>
+
+	<div class="admin-edit-preparation">
+		<p>Modo de prepararo</p>
+	</div>
+
+	<div class="admin-edit-preparation_content add-preparation-node">
+		{% for preparation in recipe.preparation %}
+		<input
+			class="add-preparation-input"
+			type="text"
+			name="preparation"
+			value="{{ preparation }}"
+            placeholder="Escreva antes de adicionar novo"
+		/>
+		{% endfor %}
+	</div>
+
+	<div class="admin-edit-add_new_preparation">
+		<button type="button" class="add-preparation">Adicionar novo passo</button>
+	</div>
+
+	<div class="admin-edit-information">
+		<p>Informações adicionais</p>
+	</div>
+
+	<div class="admin-edit-information_content">
+		<textarea name="information" value="{{ recipe.information }}">
+{{ recipe.information }}</textarea
+		>
+	</div>
+</main>

@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 		{% block head %}
-		<title>Foodfy</title>
+		<title>Foodfy Admin</title>
 		{% endblock %}
 
 		<link
@@ -17,22 +17,15 @@
 		<link rel="stylesheet" href="/style.css" />
 	</head>
 	<body>
-		<div id="global-container">
-			{% block header %}
-			<div class="global-header_container">
-				<header>
-					<a href="/"><img src="/assets/logo.png" alt="Foodfy Logo" /></a>
-					<a href="/about">Sobre</a>
-					<a href="/recipes">Receitas</a>
-				</header>
-				{% endblock %} {% block content %} {% endblock %}
-			</div>
+		{% block header %}
+		<div class="admin-header_container">
+			<header class="admin-header">
+				<a href="/admin/recipes"><img src="/assets/logo.png" alt="Foodfy Logo" /></a>
+			</header>
 		</div>
+		{% endblock %}
+		<div id="global-container">{% block content %} {% endblock %}</div>
 
-		<footer>
-			<p>Todos direitos reservados, receitas Foodfy.</p>
-		</footer>
-
-		{% block script %} {% endblock%}
+		<script src="/scripts.js"></script>
 	</body>
 </html>
