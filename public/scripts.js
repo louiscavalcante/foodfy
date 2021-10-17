@@ -56,63 +56,19 @@ if (formDelete) {
 	})
 }
 
-//! -------------------- admin create - add ingredient
-const createAddIngredientButton = document.querySelector('.admin-create-btn_add_ingredient')
+//! -------------------- admin - add ingredient
+const addIngredientBtn = document.querySelector('.add-ingredients')
 
-function createAddIngredient() {
-	const ingredients = document.querySelector('#admin-create-ingredients_node')
-	const fieldContainer = document.querySelectorAll('.admin-create-ingredients_content')
-
-	// Realiza um clone do último ingrediente adicionado
-	let newField = fieldContainer[fieldContainer.length - 1].cloneNode(true)
-
-	// Deixa o valor do input vazio
-	newField.children[0].value = ''
-	ingredients.appendChild(newField)
-
-	// Não adiciona um novo input se o último tem um valor vazio
-	if (newField.children[0].value == '') return false
-}
-
-if (createAddIngredientButton) {
-	createAddIngredientButton.addEventListener('click', createAddIngredient)
-}
-
-//! -------------------- admin create - add preparation
-const createAddPreparationButton = document.querySelector('.admin-create-btn_add_preparation')
-
-function createAddPreparation() {
-	const ingredients = document.querySelector('#admin-create-preparation_node')
-	const fieldContainer = document.querySelectorAll('.admin-create-preparation_content')
-
-	// Realiza um clone do último ingrediente adicionado
-	let newField = fieldContainer[fieldContainer.length - 1].cloneNode(true)
-
-	// Deixa o valor do input vazio
-	newField.children[0].value = ''
-	ingredients.appendChild(newField)
-
-	// Não adiciona um novo input se o último tem um valor vazio
-	if (newField.children[0].value == '') return false
-}
-if (createAddPreparationButton) {
-	createAddPreparationButton.addEventListener('click', createAddPreparation)
-}
-
-//todo admin edit - buttons
-//! -------------------- admin edit - add ingredient
-const editAddIngredientButton = document.querySelector('.admin-edit-btn_add_ingredient')
-
-function editAddIngredient() {
-	let ingredients = document.querySelector('.admin-edit-ingredients_content')
-	let fieldContainer = document.querySelectorAll('.admin-edit-ingredients_input')
+function addIngredient() {
+	let ingredients = document.querySelector('.add-ingredients-node')
+	let fieldContainer = document.querySelectorAll('.add-ingredients-input')
 
 	// Realiza um clone do último ingrediente adicionado
 	let newField = fieldContainer[fieldContainer.length - 1].cloneNode(true)
 
 	// Deixa o valor do input vazio
 	newField.setAttribute('value', '')
-    newField.value = ''
+	newField.value = ''
 
 	// Não adiciona um novo input se o último tem um valor vazio
 	if (fieldContainer[fieldContainer.length - 1].value == '') return false
@@ -120,6 +76,27 @@ function editAddIngredient() {
 	ingredients.appendChild(newField)
 }
 
-if (editAddIngredientButton) {
-	editAddIngredientButton.addEventListener('click', editAddIngredient)
+//! -------------------- admin - add preparation
+const addPreparationBtn = document.querySelector('.add-preparation')
+
+function addPreparation() {
+	let preparation = document.querySelector('.add-preparation-node')
+	let fieldContainer = document.querySelectorAll('.add-preparation-input')
+
+	// Realiza um clone do último ingrediente adicionado
+	let newField = fieldContainer[fieldContainer.length - 1].cloneNode(true)
+
+	// Deixa o valor do input vazio
+	newField.setAttribute('value', '')
+	newField.value = ''
+
+	// Não adiciona um novo input se o último tem um valor vazio
+	if (fieldContainer[fieldContainer.length - 1].value == '') return false
+
+	preparation.appendChild(newField)
+}
+
+if (addIngredientBtn || addPreparationBtn) {
+	addIngredientBtn.addEventListener('click', addIngredient)
+    addPreparationBtn.addEventListener('click', addPreparation)
 }
