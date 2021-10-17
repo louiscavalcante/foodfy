@@ -17,13 +17,13 @@
 		<link rel="stylesheet" href="/style.css" />
 	</head>
 	<body>
-		{% block header %}
 		<div class="admin-header_container">
+            {% block header %}
 			<header class="admin-header">
 				<a href="/admin/recipes"><img src="/assets/logo.png" alt="Foodfy Logo" /></a>
 			</header>
+            {% endblock %}
 		</div>
-		{% endblock %}
 		<div id="global-container">{% block content %} {% endblock %}</div>
 
 		<script src="/scripts.js"></script>
