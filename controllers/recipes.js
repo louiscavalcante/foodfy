@@ -32,12 +32,26 @@ exports.post = function (req, res) {
 	const title = 'Recipe Name'
 	const author = 'Admin'
 
-	data.recipes.push({
+    let arrIngredients = []
+    if (!Array.isArray(ingredients)) {
+        arrIngredients.push(`${ingredients}`)
+    } else {
+        arrIngredients = ingredients
+    }
+    
+    let arrPreparation = []
+    if (!Array.isArray(preparation)) {
+        arrPreparation.push(`${preparation}`)
+    } else {
+        arrPreparation = preparation
+    }
+
+	data.recipes.unshift({
 		image,
 		title,
 		author,
-		ingredients: [ingredients],
-		preparation: [preparation],
+		ingredients: arrIngredients,
+		preparation: arrPreparation,
 		information,
 	})
 
