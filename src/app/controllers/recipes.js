@@ -1,5 +1,6 @@
 const { date } = require('../lib/utils.js')
 const Recipe = require('../models/recipe.js')
+const data = require('../../../data.json')
 
 exports.index = function (req, res) {
 	const { recipes } = data

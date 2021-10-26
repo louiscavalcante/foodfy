@@ -2,6 +2,7 @@ const express = require('express')
 const routes = express.Router()
 const recipes = require('./app/controllers/recipes.js')
 const chefs = require('./app/controllers/chefs.js')
+const data = require('../data.json')
 
 routes.get('/', function (req, res) {
 	return res.render('index', { recipes: data.recipes })

@@ -151,7 +151,7 @@ if (addPreparationBtn) {
 
 //! -------------------- global - adds activePage class to headers of same href
 const currentPage = location.pathname
-const menuItems = document.querySelectorAll('header .activeSelector a')
+const menuItems = document.querySelectorAll('.activeSelector')
 
 if (menuItems) {
 	for (item of menuItems) {
