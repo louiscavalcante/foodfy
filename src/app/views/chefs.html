@@ -1,0 +1,18 @@
+{% extends 'layout.html' %} {% block head %}
+<title>Chefs - Foodfy</title>
+{% endblock %} {% block content %}
+
+<main class="chefs-chefs_container">
+	{% for chef in chefs %}
+	<div class="chefs-chef" data-chef_id="{{ chef.id }}">
+		<div class="chefs-chef_image">
+			<img src="{{ chef.avatar_url }}" alt="Imagem de {{ chef.name }}" />
+		</div>
+		<div class="chefs-chef_info_container">
+			<p>{{ chef.name }}</p>
+		</div>
+	</div>
+	{% endfor %}
+</main>
+
+{% endblock %}

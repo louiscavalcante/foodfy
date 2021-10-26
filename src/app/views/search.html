@@ -1,0 +1,21 @@
+{% extends 'layout.html' %} {% block head %}
+<title>Search - Foodfy</title>
+{% endblock %} {% block content %}
+
+<main class="search-recipes_container">
+	{% for recipe in recipes %}
+	<div class="search-recipe" data-recipe_id="{{ recipe.id }}">
+		<div class="search-recipe_image">
+			<img src="{{ recipe.image }}" alt="Imagem de {{ recipe.title }}" />
+		</div>
+		<div class="search-recipe_info">
+			<p>{{ recipe.title }}</p>
+		</div>
+		<div class="search-recipe_chef">
+			<p>por {{ recipe.author }}</p>
+		</div>
+	</div>
+	{% endfor %}
+</main>
+
+{% endblock %}

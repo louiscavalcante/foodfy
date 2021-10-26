@@ -1,12 +1,12 @@
-{% extends 'admin/recipes/layout.html' %} {% block head %}
+{% extends 'admin/layout.html' %} {% block head %}
 <title>Edit:{{ recipe.title }} - Foodfy Admin</title>
 {% endblock %} {% block content %}
 
 <form method="POST">
-        <div class="admin-edit-button_container">
+        <div class="admin-recipes-edit-button_container">
             <p>Editando receita</p>
 
-            <div class="admin-edit-buttons">
+            <div class="admin-recipes-edit-buttons">
                 <button id="form-delete" formaction="/admin/recipes?_method=DELETE" type="submit">
                     Deletar
                 </button>

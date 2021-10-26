@@ -1,17 +1,17 @@
-<main class="admin-edit-main_container">
-	<div class="admin-edit-image">
+<main class="admin-recipes-edit-main_container">
+	<div class="admin-recipes-edit-image">
 		<p>Imagem da receita</p>
 	</div>
 
-	<div class="admin-edit-image_content">
+	<div class="admin-recipes-edit-image_content">
 		<input type="url" name="image" value="{{ recipe.image }}" />
 	</div>
 
-	<div class="admin-edit-ingredients">
+	<div class="admin-recipes-edit-ingredients">
 		<p>Ingredientes</p>
 	</div>
 
-	<div class="admin-edit-ingredients_content add-ingredients-node">
+	<div class="admin-recipes-edit-ingredients_content add-ingredients-node">
 		{% for ingredients in recipe.ingredients %}
 		<input
 			class="add-ingredients-input"
@@ -23,15 +23,15 @@
 		{% endfor %}
 	</div>
 
-	<div class="admin-edit-add_new_ingredient">
+	<div class="admin-recipes-edit-add_new_ingredient">
 		<button type="button" class="add-ingredients">Adicionar novo ingrediente</button>
 	</div>
 
-	<div class="admin-edit-preparation">
+	<div class="admin-recipes-edit-preparation">
 		<p>Modo de prepararo</p>
 	</div>
 
-	<div class="admin-edit-preparation_content add-preparation-node">
+	<div class="admin-recipes-edit-preparation_content add-preparation-node">
 		{% for preparation in recipe.preparation %}
 		<input
 			class="add-preparation-input"
@@ -43,15 +43,15 @@
 		{% endfor %}
 	</div>
 
-	<div class="admin-edit-add_new_preparation">
+	<div class="admin-recipes-edit-add_new_preparation">
 		<button type="button" class="add-preparation">Adicionar novo passo</button>
 	</div>
 
-	<div class="admin-edit-information">
+	<div class="admin-recipes-edit-information">
 		<p>Informações adicionais</p>
 	</div>
 
-	<div class="admin-edit-information_content">
+	<div class="admin-recipes-edit-information_content">
 		<textarea name="information" value="{{ recipe.information }}">
 {{ recipe.information }}</textarea
 		>

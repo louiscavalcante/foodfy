@@ -1,0 +1,33 @@
+{% extends 'layout.html' %} {% block head %}
+<title>{{ chef.name }} - Foodfy</title>
+{% endblock %} {% block content %}
+
+<section class="chef-show-image_container">
+	<div class="chef-show-chef_image">
+		<img src="{{ chef.image }}" alt="Imagem de {{ chef.title }}" />
+	</div>
+</section>
+
+<div class="chef-show-chef_info">
+	<p>{{ chef.name }}</p>
+	<p>{{ chef.total_recipes }}</p>
+</div>
+
+<main class="chef-index-recipes_container">
+	{% for recipe in recipes %}
+	<div class="chef-index-recipe" data-recipe_id="{{ recipe.id }}">
+		<div class="chef-index-recipe_image">
+			<img src="{{ recipe.image }}" alt="Imagem de {{ recipe.title }}" />
+		</div>
+		<div class="chef-index-recipe_info_container">
+			<p>{{ recipe.title }}</p>
+			<p>por {{ recipe.author }}</p>
+			<div class="chef-index-recipe_info_show">
+				<a href="/recipes/{{ recipe.id }}">Visualizar</a>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+</main>
+
+{% endblock %}

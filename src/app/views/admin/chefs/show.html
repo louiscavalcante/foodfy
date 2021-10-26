@@ -1,0 +1,38 @@
+{% extends 'admin/layout.html' %} {% block head %}
+<title>{{ chef.name }} - Foodfy Admin</title>
+{% endblock %} {% block content %}
+
+<div class="admin-chefs-show-button_container">
+	<p>Chef: {{ chef.name }}</p>
+	<button><a href="/admin/chefs/{{ id }}/edit">Editar chef</a></button>
+</div>
+
+<section class="admin-chefs-show-image_container">
+	<div class="admin-chefs-show-chef_image">
+		<img src="{{ chef.image }}" alt="Imagem de {{ chef.title }}" />
+	</div>
+</section>
+
+<div class="admin-chefs-show-chef_info">
+	<p>{{ chef.name }}</p>
+	<p>{{ chef.total_recipes }}</p>
+</div>
+
+<main class="admin-chefs-index-recipes_container">
+	{% for recipe in recipes %}
+	<div class="admin-chefs-index-recipe" data-recipe_id="{{ recipe.id }}">
+		<div class="admin-chefs-index-recipe_image">
+			<img src="{{ recipe.image }}" alt="Imagem de {{ recipe.title }}" />
+		</div>
+		<div class="admin-chefs-index-recipe_info_container">
+			<p>{{ recipe.title }}</p>
+			<p>por {{ recipe.author }}</p>
+			<div class="admin-chefs-index-recipe_info_show">
+				<a href="/admin/recipes/{{ recipe.id }}">Visualizar</a>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+</main>
+
+{% endblock %}
