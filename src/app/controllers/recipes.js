@@ -1,119 +1,92 @@
 const { date } = require('../lib/utils.js')
 const Recipe = require('../models/recipe.js')
-const data = require('../../../data.json')
 
 exports.index = function (req, res) {
-	const { recipes } = data
-	const newRecipes = recipes.map(splitFunc)
-
-	function splitFunc(recipe) {
-		let recipesFormatted = {
-			...recipe,
-		}
-		return recipesFormatted
-	}
-
-	return res.render('admin/recipes/index', { recipes: newRecipes })
+	Recipe.all(function (recipes) {
+		return res.render('admin/recipes/index', { recipes: recipes })
+	})
 }
 
 exports.create = function (req, res) {
-	return res.render('admin/recipes/create')
+	Recipe.findChefs(chefs => {
+		return res.render('admin/recipes/create', { chefs })
+	})
 }
 
 exports.post = function (req, res) {
 	const keys = Object.keys(req.body)
 
 	for (let key of keys) {
-		if (req.body[key] == '') {
-			return res.send('Please fill all the fields!')
+		if (req.body[key] == 'empty') {
+			return res.send('Por favor, selecione um Chef!')
 		}
 	}
 
-	const { image, ingredients, preparation, information } = req.body
-	const title = 'Recipe Name'
-	const author = 'Admin'
+	const { ingredients, preparation } = req.body
 
 	let arrIngredients = []
-	Array.isArray(ingredients)
-		? (arrIngredients = ingredients)
-		: arrIngredients.push(ingredients)
+	Array.isArray(ingredients) ? (arrIngredients = ingredients) : arrIngredients.push(ingredients)
 
 	let arrPreparation = []
-	Array.isArray(preparation)
-		? (arrPreparation = preparation)
-		: arrPreparation.push(preparation)
+	Array.isArray(preparation) ? (arrPreparation = preparation) : arrPreparation.push(preparation)
 
-	data.recipes.unshift({
-		image,
-		title,
-		author,
+	let data = {
+		...req.body,
 		ingredients: arrIngredients,
 		preparation: arrPreparation,
-		information,
-	})
+	}
 
-	fs.writeFile('data.json', JSON.stringify(data, null, 4), function (err) {
-		if (err) return res.send('Write file error!')
-
+	Recipe.create(data, () => {
 		return res.redirect('/admin/recipes')
 	})
 }
 
 exports.show = function (req, res) {
-	const recipes = [...data.recipes]
 	const recipeId = req.params.id
 
-	if (recipeId in recipes) {
-		return res.render('admin/recipes/show', { recipe: recipes[recipeId], id: recipeId })
-	} else {
-		return res.status(404).render('not-found')
-	}
+	if (!recipeId) return res.status(404).render('not-found')
+
+	Recipe.find(recipeId, recipe => {
+		return res.render('admin/recipes/show', { recipe: recipe })
+	})
 }
 
 exports.edit = function (req, res) {
-	const recipes = [...data.recipes]
 	const recipeId = req.params.id
 
-	if (recipeId in recipes) {
-		return res.render('admin/recipes/edit', { recipe: recipes[recipeId], id: recipeId })
-	} else {
-		return res.status(404).render('not-found')
-	}
+	if (!recipeId) return res.status(404).render('not-found')
+
+	Recipe.find(recipeId, foundRecipe => {
+		Recipe.findChefs(foundChefs => {
+			return res.render('admin/recipes/edit', { recipe: foundRecipe, chefs: foundChefs })
+		})
+	})
 }
 
 exports.put = function (req, res) {
-	const { id, image, ingredients, preparation, information } = req.body
-	let index = id
+	const { id: recipeId, ingredients, preparation } = req.body
 
-	const recipe = {
-		...data.recipes[index],
-		image,
-		ingredients,
-		preparation,
-		information,
+	let arrIngredients = []
+	Array.isArray(ingredients) ? (arrIngredients = ingredients) : arrIngredients.push(ingredients)
+
+	let arrPreparation = []
+	Array.isArray(preparation) ? (arrPreparation = preparation) : arrPreparation.push(preparation)
+
+	let data = {
+		...req.body,
+		ingredients: arrIngredients,
+		preparation: arrPreparation,
 	}
 
-	data.recipes[index] = recipe
-
-	fs.writeFile('data.json', JSON.stringify(data, null, 4), function (err) {
-		if (err) return res.send('Write file error!')
-
-		return res.redirect(`/admin/recipes/${id}`)
+	Recipe.update(data, () => {
+		return res.redirect(`/admin/recipes/${recipeId}`)
 	})
 }
 
 exports.delete = function (req, res) {
-	const { id } = req.body
+	const { id: recipeId } = req.body
 
-	const filteredRecipes = data.recipes.filter(function (element, index, arr) {
-		return arr[index] != arr[id]
+	Recipe.delete(recipeId, () => {
+		return res.redirect('/admin/recipes')
 	})
-
-	data.recipes = filteredRecipes
-
-	fs.writeFile('data.json', JSON.stringify(data, null, 4), function (err) {
-		if (err) return res.send('Write file error!')
-	})
-
-	return res.redirect('/admin/recipes')
 }

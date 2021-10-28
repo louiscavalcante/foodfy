@@ -799,6 +799,44 @@ footer p {
 	font-family: 'Roboto', sans-serif;
 }
 
+.admin-recipes-edit-chef_select {
+    margin-top: 30px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #111;
+}
+
+.admin-recipes-edit-chef_select_content select {
+    margin-top: 10px;
+    padding: 15px 20px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1.6rem;
+    color: #111;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.admin-recipes-edit-title {
+	margin-top: 30px;
+	font-size: 1.6rem;
+	font-weight: bold;
+	color: #111;
+}
+
+.admin-recipes-edit-title_content input {
+	margin-top: 10px;
+	padding: 15px 20px;
+	width: 100%;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	font-size: 1.6rem;
+	color: #111;
+	outline: none;
+	font-family: 'Roboto', sans-serif;
+}
+
 .admin-recipes-edit-ingredients {
 	margin-top: 30px;
 	font-size: 1.6rem;
@@ -930,6 +968,43 @@ footer p {
 	color: #111;
 	outline: none;
 	font-family: 'Roboto', sans-serif;
+}
+
+.admin-recipes-create-chef_select {
+    margin-top: 30px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #111;
+}
+
+.admin-recipes-create-chef_select_content select {
+	margin-top: 10px;
+	padding: 15px 20px;
+    width: 100%;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	font-size: 1.6rem;
+	color: #999;
+    outline: none;
+	font-family: 'Roboto', sans-serif;
+}
+.admin-recipes-create-title {
+    margin-top: 30px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #111;
+}
+
+.admin-recipes-create-title_content input {
+    margin-top: 10px;
+    padding: 15px 20px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1.6rem;
+    color: #111;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
 }
 
 .admin-recipes-create-ingredients {
