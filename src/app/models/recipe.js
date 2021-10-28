@@ -1,5 +1,6 @@
 const db = require('../config/db.js')
 const { date } = require('../lib/utils.js')
+const red = require('chalk').bgRed
 
 module.exports = {
 	all(callback) {
@@ -10,7 +11,7 @@ module.exports = {
             LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
             ORDER BY recipes.id`,
 			function (err, results) {
-				if (err) throw `Database error! ${err}`
+				if (err) throw red(`Database error! ${err}`)
 
 				callback(results.rows)
 			}
@@ -42,7 +43,7 @@ module.exports = {
 		]
 
 		db.query(query, values, function (err, results) {
-			if (err) throw `Database error! ${err}`
+			if (err) throw red(`Database error! ${err}`)
 
 			callback(results.rows[0])
 		})
@@ -57,7 +58,7 @@ module.exports = {
             WHERE recipes.id = $1`,
 			[id],
 			function (err, results) {
-				if (err) throw `Database error! ${err}`
+				if (err) throw red(`Database error! ${err}`)
 
 				callback(results.rows[0])
 			}
@@ -71,7 +72,7 @@ module.exports = {
             FROM chefs
             ORDER BY name`,
 			function (err, results) {
-				if (err) throw `Database error! ${err}`
+				if (err) throw red(`Database error! ${err}`)
 
 				callback(results.rows)
 			}
@@ -91,7 +92,7 @@ module.exports = {
         `
 
 		const values = [
-            data.chef_id,
+			data.chef_id,
 			data.image,
 			data.title,
 			data.ingredients,
@@ -101,7 +102,7 @@ module.exports = {
 		]
 
 		db.query(query, values, function (err, results) {
-			if (err) throw `Database error! ${err}`
+			if (err) throw red(`Database error! ${err}`)
 
 			callback()
 		})
@@ -109,7 +110,7 @@ module.exports = {
 
 	delete(id, callback) {
 		db.query(`DELETE FROM recipes WHERE id = $1`, [id], function (err, results) {
-			if (err) throw `Database error! ${err}`
+			if (err) throw red(`Database error! ${err}`)
 
 			callback()
 		})
@@ -145,7 +146,7 @@ module.exports = {
         `
 
 		db.query(query, [limit, offset], function (err, results) {
-			if (err) throw `Database error! ${err}`
+			if (err) throw red(`Database error! ${err}`)
 
 			callback(results.rows)
 		})
