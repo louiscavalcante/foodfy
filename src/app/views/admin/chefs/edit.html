@@ -1,5 +1,5 @@
 {% extends 'admin/layout.html' %} {% block head %}
-<title>Edit:{{ chef.name }} - Foodfy Admin</title>
+<title>Edit: {{ chef.name }} - Foodfy Admin</title>
 {% endblock %} {% block content %}
 
 <form method="POST">
@@ -17,7 +17,7 @@
 
 		{% include 'admin/chefs/fields.html' %}
 
-	    <input type="hidden" name="id" value="{{ id }}" />
+	    <input type="hidden" name="id" value="{{ chef.id }}" />
     </div>
 </form>
 

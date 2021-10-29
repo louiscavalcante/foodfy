@@ -1,15 +1,14 @@
-const { date } = require('../lib/utils.js')
 const Recipe = require('../models/recipe.js')
 
 exports.index = function (req, res) {
-	Recipe.all(function (recipes) {
-		return res.render('admin/recipes/index', { recipes: recipes })
+	Recipe.all(function (allRecipes) {
+		return res.render('admin/recipes/index', { recipes: allRecipes })
 	})
 }
 
 exports.create = function (req, res) {
-	Recipe.findChefs(chefs => {
-		return res.render('admin/recipes/create', { chefs })
+	Recipe.findChefs(foundChefs => {
+		return res.render('admin/recipes/create', { chefs: foundChefs })
 	})
 }
 
@@ -46,8 +45,8 @@ exports.show = function (req, res) {
 
 	if (!recipeId) return res.status(404).render('not-found')
 
-	Recipe.find(recipeId, recipe => {
-		return res.render('admin/recipes/show', { recipe: recipe })
+	Recipe.find(recipeId, foundRecipe => {
+		return res.render('admin/recipes/show', { recipe: foundRecipe })
 	})
 }
 

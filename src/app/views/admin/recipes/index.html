@@ -6,14 +6,14 @@
 
 <main class="admin-recipes-index-recipes_container">
 	{% for recipe in recipes %}
-	<div class="admin-recipes-index-recipe" data-recipe_id="{{ recipe.id }}">
+	<div class="admin-recipes-index-recipe">
 		<div class="admin-recipes-index-recipe_image">
 			<img src="{{ recipe.image }}" alt="Imagem de {{ recipe.title }}" />
 		</div>
 		<div class="admin-recipes-index-recipe_info_container">
 			<p>{{ recipe.title }}</p>
 			<p>por {{ recipe.author }}</p>
-			<div class="admin-recipes-index-recipe_info_show">
+			<div class="admin-recipes-index-recipe_info_show" data-recipe_id="{{ recipe.id }}">
 				<a href="/admin/recipes/{{ recipe.id }}">Visualizar</a>
 			</div>
 		</div>

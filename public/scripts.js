@@ -18,10 +18,10 @@ if (index_recipe) {
 if (recipes_recipe) {
 	recipeHrefParams(recipes_recipe)
 }
-//
+
 //! -------------------- chefs - click redirect
-const index_chef = document.querySelectorAll('.index-chef')
 const chefs_chef = document.querySelectorAll('.chefs-chef')
+const chef_recipe = document.querySelectorAll('chef-index-recipe_info_show')
 
 function chefHrefParams(chefs) {
 	for (let chef of chefs) {
@@ -32,16 +32,16 @@ function chefHrefParams(chefs) {
 	}
 }
 
-if (index_chef) {
-	chefHrefParams(index_chef)
-}
-
 if (chefs_chef) {
 	chefHrefParams(chefs_chef)
 }
 
+if (chef_recipe) {
+	chefHrefParams(chef_recipe)
+}
+
 //! -------------------- admin recipes index - recipes click redirect
-const admin_index_recipes = document.querySelectorAll('.admin-recipes-index-recipe')
+const admin_index_recipes = document.querySelectorAll('.admin-recipes-index-recipe_info_show')
 
 function adminRecipeHrefParams(recipes) {
 	for (let recipe of recipes) {
@@ -56,7 +56,7 @@ if (admin_index_recipes) {
 }
 
 //! -------------------- admin chefs index - chefs click redirect
-const admin_index_chefs = document.querySelectorAll('.admin-chefs-index-chef')
+const admin_index_chefs = document.querySelectorAll('.admin-chefs-index-chef_info_show')
 
 function adminchefHrefParams(chefs) {
 	for (let chef of chefs) {
@@ -92,6 +92,7 @@ if (hideButtons) {
 
 //! -------------------- delete confirmation
 const formDelete = document.querySelector('#form-delete')
+
 if (formDelete) {
 	formDelete.addEventListener('click', function (event) {
 		const confirmation = confirm('Deseja realmente deletar?')
@@ -149,7 +150,7 @@ if (addPreparationBtn) {
 	addPreparationBtn.addEventListener('click', addPreparation)
 }
 
-//! -------------------- global - adds activePage class to headers of same href
+//! -------------------- global header - adds activePage class to headers of same href
 const currentPage = location.pathname
 const menuItems = document.querySelectorAll('.activeSelector')
 
@@ -157,6 +158,18 @@ if (menuItems) {
 	for (item of menuItems) {
 		if (currentPage.includes(item.getAttribute('href'))) {
 			item.classList.add('activePage')
+		}
+	}
+}
+
+//! -------------------- admin global header - adds admin-activePage class to headers of same href
+const adminCurrentPage = location.pathname
+const adminMenuItems = document.querySelectorAll('.admin-activeSelector')
+
+if (adminMenuItems) {
+	for (item of adminMenuItems) {
+		if (adminCurrentPage.includes(item.getAttribute('href'))) {
+			item.classList.add('admin-activePage')
 		}
 	}
 }

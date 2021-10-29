@@ -18,11 +18,13 @@
 	</head>
 	<body>
 		<div class="admin-global-header_container">
-            {% block header %}
+			{% block header %}
 			<header class="admin-global-header">
-				<a href="/admin/recipes"><img src="/assets/logo.png" alt="Foodfy Logo" /></a>
+				<a href="/"><img src="/assets/logo.png" alt="Foodfy Logo" /></a>
+				<a class="admin-activeSelector" href="/admin/recipes">RECEITAS</a>
+				<a class="admin-activeSelector" href="/admin/chefs">CHEFS</a>
 			</header>
-            {% endblock %}
+			{% endblock %}
 		</div>
 		<div id="global-container">{% block content %} {% endblock %}</div>
 

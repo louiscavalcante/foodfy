@@ -138,9 +138,9 @@ module.exports = {
 		}
 
 		query = `
-            SELECT recipes.*, ${totalQuery}, count(chefs) as total_chefs
+            SELECT recipes.*, ${totalQuery}, count(chefs) AS total_chefs
             FROM recipes
-            LEFT JOIN chefs ON (recipes.id = chefs.recipe_id)
+            LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
             ${filterQuery}
             GROUP BY recipes.id LIMIT $1 OFFSET $2
         `

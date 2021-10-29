@@ -4,18 +4,22 @@
 
 <div class="admin-chefs-show-button_container">
 	<p>Chef: {{ chef.name }}</p>
-	<button><a href="/admin/chefs/{{ id }}/edit">Editar chef</a></button>
+	<button><a href="/admin/chefs/{{ chef.id }}/edit">Editar chef</a></button>
 </div>
 
 <section class="admin-chefs-show-image_container">
 	<div class="admin-chefs-show-chef_image">
-		<img src="{{ chef.image }}" alt="Imagem de {{ chef.title }}" />
+		<img src="{{ chef.avatar_url }}" alt="Imagem de {{ chef.name }}" />
 	</div>
 </section>
 
 <div class="admin-chefs-show-chef_info">
 	<p>{{ chef.name }}</p>
-	<p>{{ chef.total_recipes }}</p>
+	<p>{{ chef.total_recipes }} {% if chef.total_recipes == 1 %}receita{% else %}receitas{% endif %}</p>
+</div>
+
+<div class="admin-chefs-show-recipes">
+	<p>Receitas</p>
 </div>
 
 <main class="admin-chefs-index-recipes_container">
