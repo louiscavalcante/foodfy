@@ -420,120 +420,161 @@ footer p {
 
 /*! -------------------- chefs -------------------- */
 .chefs-chefs_container {
-	margin: 30px auto 50px auto;
-	max-width: 940px;
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(450px, auto));
-	gap: 30px 20px;
+    margin: 50px auto 50px auto;
+    max-width: 940px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, auto));
+    gap: 30px 30px;
 }
 
 .chefs-chef {
-	display: grid;
-	grid-template-columns: 172px 308px;
-	column-gap: 20px;
+    display: grid;
+    grid-template-columns: 64px 146px;
+    column-gap: 20px;
+    align-items: center;
+    cursor: pointer;
 }
 
 .chefs-chef_image img {
-	width: 100%;
-	height: 80px;
-	object-fit: cover;
-	border-radius: 8.57px;
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 .chefs-chef_info_container p:nth-child(1) {
-	font-size: 1.8rem;
-	color: #111;
+    font-size: 1.8rem;
+    color: #111;
+}
+
+.chefs-chef_info_container p:nth-child(2) {
+    margin-top: 5px;
+    font-size: 1.4rem;
+    color: #666;
 }
 
 /*! -------------------- chefs - media queries -------------------- */
 @media screen and (max-width: 415px) {
-	.chefs-chefs_container {
-		display: grid;
-		grid-template-columns: 1fr;
-	}
+    .chefs-chefs_container {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
 
-	.chefs-chef {
-		display: grid;
-		grid-template-columns: 1fr;
-		row-gap: 20px;
-	}
+    .chefs-chef {
+        display: grid;
+        grid-template-columns: 80px 146px;
+        column-gap: 20px;
+        align-items: center;
+    }
 
-	.chefs-chef_image img {
-		height: 100%;
-		object-fit: contain;
-		border-radius: 15px;
-	}
+    .chefs-chef_image img {
+        height: 80px;
+        width: 80px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
 }
 
 /*! -------------------- chef -------------------- */
-.chef-show-image_container {
-	margin: 20px auto 0 auto;
+.chef-name_container {
+	margin: 50px auto 0 auto;
 	max-width: 940px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 }
 
-.chef-show-chef_image img {
-	width: 100%;
-	height: 100%;
-	object-fit: contain;
-	border-radius: 15px;
+.chef-name_container p {
+	font-size: 2.4rem;
+	font-weight: bold;
+	color: #111;
 }
 
-.chef-show-chef_info {
-	margin-top: 50px;
+.chef-name_container a {
+	color: #fff;
+	font-size: 1.6rem;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.chef-image_container {
+	margin: 42px auto 0 auto;
+	max-width: 940px;
+	display: grid;
+	justify-content: center;
+}
+
+.chef-chef_image img {
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+.chef-chef_info {
+	margin-top: 30px;
 	display: grid;
 	justify-content: center;
 	text-align: center;
 }
 
-.chef-show-chef_info p:nth-child(1) {
+.chef-chef_info p:nth-child(1) {
 	font-size: 3.6rem;
 	font-weight: bold;
 	color: #111;
 }
 
-.chef-show-chef_info p:nth-child(2) {
+.chef-chef_info p:nth-child(2) {
 	margin-top: 4px;
 	font-size: 2rem;
 	color: #777;
 }
 
-.chef-index-recipes_container {
-	margin: 30px auto 50px auto;
+.chef-recipes p {
+	margin: 50px auto 0 auto;
+	max-width: 940px;
+	font-size: 2.4rem;
+	font-weight: bold;
+	color: #111;
+}
+
+.chef-recipes_container {
+	margin: 30px auto 300px auto;
 	max-width: 940px;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(450px, auto));
 	gap: 30px 20px;
 }
 
-.chef-index-recipe {
+.chef-recipe {
 	display: grid;
 	grid-template-columns: 172px 308px;
 	column-gap: 20px;
 }
 
-.chef-index-recipe_image img {
+.chef-recipe_image img {
 	width: 100%;
 	height: 80px;
 	object-fit: cover;
 	border-radius: 8.57px;
 }
 
-.chef-index-recipe_info_container p:nth-child(1) {
+.chef-recipe_info_container p:nth-child(1) {
 	font-size: 1.8rem;
 	color: #111;
 }
 
-.chef-index-recipe_info_container p:nth-child(2) {
+.chef-recipe_info_container p:nth-child(2) {
 	margin-top: 5px;
 	font-size: 1.4rem;
 	color: #777;
 }
 
-.chef-index-recipe_info_show {
+.chef-recipe_info_show {
 	margin-top: 10px;
 }
 
-.chef-index-recipe_info_show a {
+.chef-recipe_info_show a {
 	font-size: 1.4rem;
 	font-weight: bold;
 	color: #6558c3;
@@ -1265,7 +1306,7 @@ footer p {
 	color: #111;
 }
 
-.admin-chefs-index-recipes_container {
+.admin-chefs-show-recipes_container {
 	margin: 30px auto 300px auto;
 	max-width: 940px;
 	display: grid;
@@ -1273,35 +1314,35 @@ footer p {
 	gap: 30px 20px;
 }
 
-.admin-chefs-index-recipe {
+.admin-chefs-show-recipe {
 	display: grid;
 	grid-template-columns: 172px 308px;
 	column-gap: 20px;
 }
 
-.admin-chefs-index-recipe_image img {
+.admin-chefs-show-recipe_image img {
 	width: 100%;
 	height: 80px;
 	object-fit: cover;
 	border-radius: 8.57px;
 }
 
-.admin-chefs-index-recipe_info_container p:nth-child(1) {
+.admin-chefs-show-recipe_info_container p:nth-child(1) {
 	font-size: 1.8rem;
 	color: #111;
 }
 
-.admin-chefs-index-recipe_info_container p:nth-child(2) {
+.admin-chefs-show-recipe_info_container p:nth-child(2) {
 	margin-top: 5px;
 	font-size: 1.4rem;
 	color: #777;
 }
 
-.admin-chefs-index-recipe_info_show {
+.admin-chefs-show-recipe_info_show {
 	margin-top: 10px;
 }
 
-.admin-chefs-index-recipe_info_show a {
+.admin-chefs-show-recipe_info_show a {
 	font-size: 1.4rem;
 	font-weight: bold;
 	color: #6558c3;

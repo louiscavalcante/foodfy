@@ -2,45 +2,15 @@ const express = require('express')
 const routes = express.Router()
 const recipes = require('./app/controllers/recipes.js')
 const chefs = require('./app/controllers/chefs.js')
-const data = require('../data.json')
+const globals = require('./app/controllers/globals.js')
 
-routes.get('/', function (req, res) {
-	return res.render('index', { recipes: data.recipes })
-})
-
-routes.get('/about', function (req, res) {
-	return res.render('about')
-})
-
-routes.get('/recipes', function (req, res) {
-	return res.render('recipes', { recipes: data.recipes })
-})
-
-routes.get('/recipes/:index', function (req, res) {
-	const recipes = [...data.recipes]
-	const recipeIndex = req.params.index
-
-	if (recipeIndex in recipes) {
-		return res.render('recipe', { recipe: recipes[recipeIndex] })
-	} else {
-		return res.status(404).render('not-found')
-	}
-})
-
-routes.get('/chefs', function (req, res) {
-	return res.render('chefs', { recipes: data.recipes })
-})
-
-routes.get('/chefs/:index', function (req, res) {
-	const chefs = [...data.recipes]
-	const chefIndex = req.params.index
-
-	if (chefIndex in chefs) {
-		return res.render('recipe', { recipe: chefs[chefIndex] })
-	} else {
-		return res.status(404).render('not-found')
-	}
-})
+//! -------------------- global routes
+routes.get('/', globals.index)
+routes.get('/about', globals.about)
+routes.get('/recipes', globals.recipes)
+routes.get('/recipes/:id', globals.recipe)
+routes.get('/chefs', globals.chefs)
+routes.get('/chefs/:id', globals.chef)
 
 //! -------------------- admin recipes - routes
 routes.get('/admin/recipes', recipes.index)

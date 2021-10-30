@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 12.6
--- Dumped by pg_dump version 12.6
+-- Dumped from database version 13.4
+-- Dumped by pg_dump version 13.4
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -136,14 +136,14 @@ COPY public.recipes (id, chef_id, image, title, ingredients, preparation, inform
 -- Name: chefs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.chefs_id_seq', 11, true);
+SELECT pg_catalog.setval('public.chefs_id_seq', 13, true);
 
 
 --
 -- Name: recipes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.recipes_id_seq', 15, true);
+SELECT pg_catalog.setval('public.recipes_id_seq', 16, true);
 
 
 --

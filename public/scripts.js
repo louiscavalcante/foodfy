@@ -21,7 +21,6 @@ if (recipes_recipe) {
 
 //! -------------------- chefs - click redirect
 const chefs_chef = document.querySelectorAll('.chefs-chef')
-const chef_recipe = document.querySelectorAll('chef-index-recipe_info_show')
 
 function chefHrefParams(chefs) {
 	for (let chef of chefs) {
@@ -34,10 +33,6 @@ function chefHrefParams(chefs) {
 
 if (chefs_chef) {
 	chefHrefParams(chefs_chef)
-}
-
-if (chef_recipe) {
-	chefHrefParams(chef_recipe)
 }
 
 //! -------------------- admin recipes index - recipes click redirect
@@ -55,7 +50,7 @@ if (admin_index_recipes) {
 	adminRecipeHrefParams(admin_index_recipes)
 }
 
-//! -------------------- admin chefs index - chefs click redirect
+//! -------------------- admin chefs index - chef click redirect
 const admin_index_chefs = document.querySelectorAll('.admin-chefs-index-chef_info_show')
 
 function adminchefHrefParams(chefs) {

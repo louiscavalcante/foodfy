@@ -15,23 +15,26 @@
 
 <div class="admin-chefs-show-chef_info">
 	<p>{{ chef.name }}</p>
-	<p>{{ chef.total_recipes }} {% if chef.total_recipes == 1 %}receita{% else %}receitas{% endif %}</p>
+	<p>
+		{{ chef.total_recipes }} {% if chef.total_recipes == 1 %}receita{% else %}receitas{% endif
+		%}
+	</p>
 </div>
 
 <div class="admin-chefs-show-recipes">
 	<p>Receitas</p>
 </div>
 
-<main class="admin-chefs-index-recipes_container">
+<main class="admin-chefs-show-recipes_container">
 	{% for recipe in recipes %}
-	<div class="admin-chefs-index-recipe" data-recipe_id="{{ recipe.id }}">
-		<div class="admin-chefs-index-recipe_image">
+	<div class="admin-chefs-show-recipe">
+		<div class="admin-chefs-show-recipe_image">
 			<img src="{{ recipe.image }}" alt="Imagem de {{ recipe.title }}" />
 		</div>
-		<div class="admin-chefs-index-recipe_info_container">
+		<div class="admin-chefs-show-recipe_info_container">
 			<p>{{ recipe.title }}</p>
 			<p>por {{ recipe.author }}</p>
-			<div class="admin-chefs-index-recipe_info_show">
+			<div class="admin-chefs-show-recipe_info_show">
 				<a href="/admin/recipes/{{ recipe.id }}">Visualizar</a>
 			</div>
 		</div>

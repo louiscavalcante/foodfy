@@ -10,6 +10,10 @@
 		</div>
 		<div class="chefs-chef_info_container">
 			<p>{{ chef.name }}</p>
+			<p>
+				{{ chef.total_recipes }} {% if chef.total_recipes == 1 %}receita{% else %}receitas{%
+				endif %}
+			</p>
 		</div>
 	</div>
 	{% endfor %}

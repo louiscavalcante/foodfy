@@ -43,9 +43,9 @@ exports.post = function (req, res) {
 exports.show = function (req, res) {
 	const recipeId = req.params.id
 
-	if (!recipeId) return res.status(404).render('not-found')
-
 	Recipe.find(recipeId, foundRecipe => {
+		if (!foundRecipe) return res.status(404).render('not-found')
+
 		return res.render('admin/recipes/show', { recipe: foundRecipe })
 	})
 }
@@ -53,9 +53,9 @@ exports.show = function (req, res) {
 exports.edit = function (req, res) {
 	const recipeId = req.params.id
 
-	if (!recipeId) return res.status(404).render('not-found')
-
 	Recipe.find(recipeId, foundRecipe => {
+		if (!foundRecipe) return res.status(404).render('not-found')
+
 		Recipe.findChefs(foundChefs => {
 			return res.render('admin/recipes/edit', { recipe: foundRecipe, chefs: foundChefs })
 		})

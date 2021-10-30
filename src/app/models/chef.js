@@ -1,6 +1,5 @@
 const db = require('../config/db.js')
 const { date } = require('../lib/utils.js')
-const red = require('chalk').bgRed
 
 module.exports = {
 	all(callback) {
@@ -10,7 +9,7 @@ module.exports = {
             FROM chefs
             ORDER BY chefs.id`,
 			function (err, results) {
-				if (err) throw red(`Database error! ${err}`)
+				if (err) throw `Database error! ${err}`
 
 				callback(results.rows)
 			}
@@ -30,7 +29,7 @@ module.exports = {
 		const values = [data.name, data.avatar_url, date(Date.now()).iso]
 
 		db.query(query, values, function (err, results) {
-			if (err) throw red(`Database error! ${err}`)
+			if (err) throw `Database error! ${err}`
 
 			callback(results.rows[0])
 		})
@@ -46,7 +45,7 @@ module.exports = {
             GROUP BY chefs.id`,
 			[id],
 			function (err, results) {
-				if (err) throw red(`Database error! ${err}`)
+				if (err) throw `Database error! ${err}`
 
 				callback(results.rows[0])
 			}
@@ -56,14 +55,14 @@ module.exports = {
 	findRecipes(id, callback) {
 		db.query(
 			`
-            SELECT *, chefs.name AS author
+            SELECT recipes.*, chefs.name AS author
             FROM recipes
             LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
             WHERE chefs.id = $1
             ORDER BY title`,
-            [id],
+			[id],
 			function (err, results) {
-				if (err) throw red(`Database error! ${err}`)
+				if (err) throw `Database error! ${err}`
 
 				callback(results.rows)
 			}
@@ -81,7 +80,7 @@ module.exports = {
 		const values = [data.name, data.avatar_url, data.id]
 
 		db.query(query, values, function (err, results) {
-			if (err) throw red(`Database error! ${err}`)
+			if (err) throw `Database error! ${err}`
 
 			callback()
 		})
@@ -89,45 +88,9 @@ module.exports = {
 
 	delete(id, callback) {
 		db.query(`DELETE FROM chefs WHERE id = $1`, [id], function (err, results) {
-			if (err) throw red(`Database error! ${err}`)
+			if (err) throw `Database error! ${err}`
 
 			callback()
-		})
-	},
-
-	paginate(params) {
-		const { filter, limit, offset, callback } = params
-
-		let query = '',
-			filterQuery = '',
-			totalQuery = `(
-                SELECT count(*) FROM chefs
-                ) AS total`
-
-		if (filter) {
-			filterQuery = `
-                WHERE chefs.full_name ILIKE '%${filter}%'
-                OR chefs.teaches ILIKE '%${filter}%'
-            `
-
-			totalQuery = `(
-                SELECT count(*) FROM chefs
-                ${filterQuery}
-                ) AS total`
-		}
-
-		query = `
-            SELECT chefs.*, ${totalQuery}, count(recipes) AS total_recipes
-            FROM chefs
-            LEFT JOIN recipes ON (chefs.id = recipes.chef_id)
-            ${filterQuery}
-            GROUP BY chefs.id LIMIT $1 OFFSET $2
-        `
-
-		db.query(query, [limit, offset], function (err, results) {
-			if (err) throw red(`Database error! ${err}`)
-
-			callback(results.rows)
 		})
 	},
 }

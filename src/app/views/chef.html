@@ -2,27 +2,38 @@
 <title>{{ chef.name }} - Foodfy</title>
 {% endblock %} {% block content %}
 
-<section class="chef-show-image_container">
-	<div class="chef-show-chef_image">
-		<img src="{{ chef.image }}" alt="Imagem de {{ chef.title }}" />
+<div class="chef-name_container">
+	<p>Chef: {{ chef.name }}</p>
+</div>
+
+<section class="chef-image_container">
+	<div class="chef-chef_image">
+		<img src="{{ chef.avatar_url }}" alt="Imagem de {{ chef.name }}" />
 	</div>
 </section>
 
-<div class="chef-show-chef_info">
+<div class="chef-chef_info">
 	<p>{{ chef.name }}</p>
-	<p>{{ chef.total_recipes }}</p>
+	<p>
+		{{ chef.total_recipes }} {% if chef.total_recipes == 1 %}receita{% else %}receitas{% endif
+		%}
+	</p>
 </div>
 
-<main class="chef-index-recipes_container">
+<div class="chef-recipes">
+	<p>Receitas</p>
+</div>
+
+<main class="chef-recipes_container">
 	{% for recipe in recipes %}
-	<div class="chef-index-recipe">
-		<div class="chef-index-recipe_image">
+	<div class="chef-recipe">
+		<div class="chef-recipe_image">
 			<img src="{{ recipe.image }}" alt="Imagem de {{ recipe.title }}" />
 		</div>
-		<div class="chef-index-recipe_info_container">
+		<div class="chef-recipe_info_container">
 			<p>{{ recipe.title }}</p>
 			<p>por {{ recipe.author }}</p>
-			<div class="chef-index-recipe_info_show" data-recipe_id="{{ recipe.id }}">
+			<div class="chef-recipe_info_show">
 				<a href="/recipes/{{ recipe.id }}">Visualizar</a>
 			</div>
 		</div>
