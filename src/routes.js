@@ -9,6 +9,7 @@ routes.get('/', globals.index)
 routes.get('/about', globals.about)
 routes.get('/recipes', globals.recipes)
 routes.get('/recipes/:id', globals.recipe)
+routes.get('/search', globals.search)
 routes.get('/chefs', globals.chefs)
 routes.get('/chefs/:id', globals.chef)
 

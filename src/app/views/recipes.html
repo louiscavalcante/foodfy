@@ -16,13 +16,14 @@
 		</div>
 	</div>
 	{% endfor %}
+</main>
 
+<div class="recipes-pagination_container">
 	<div
-		class="pagination"
+		class="recipes-pagination"
 		data-page="{{ pagination.page }}"
 		data-total="{{ pagination.total }}"
-		data-filter="{{ filter }}"
 	></div>
-</main>
+</div>
 
 {% endblock %}

@@ -11,9 +11,25 @@ exports.about = function (req, res) {
 }
 
 exports.recipes = function (req, res) {
-	Global.allRecipes(function (allRecipes) {
-		return res.render('recipes', { recipes: allRecipes })
-	})
+	let { page, limit } = req.query
+
+	page = page || 1
+	limit = limit || 3
+	let offset = limit * (page - 1)
+
+	const params = {
+		page,
+		limit,
+		offset,
+		callback(foundRecipes) {
+			const pagination = {
+				total: Math.ceil(foundRecipes[0].total / limit),
+				page,
+			}
+			return res.render('recipes', { recipes: foundRecipes, pagination })
+		},
+	}
+	Global.paginate(params)
 }
 
 exports.recipe = function (req, res) {
@@ -24,6 +40,18 @@ exports.recipe = function (req, res) {
 
 		return res.render('recipe', { recipe: foundRecipe })
 	})
+}
+
+exports.search = function (req, res) {
+	let { filter } = req.query
+
+	const params = {
+		filter,
+		callback(foundRecipes) {
+			return res.render('search', { recipes: foundRecipes, filter})
+		},
+	}
+	Global.filterRecipes(params)
 }
 
 exports.chefs = function (req, res) {

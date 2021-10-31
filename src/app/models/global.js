@@ -84,35 +84,39 @@ module.exports = {
 	},
 
 	paginate(params) {
-		const { filter, limit, offset, callback } = params
+		const { limit, offset, callback } = params
 
 		let query = '',
-			filterQuery = '',
 			totalQuery = `(
                 SELECT count(*) FROM recipes
                 ) AS total`
-
-		if (filter) {
-			filterQuery = `
-                WHERE recipes.full_name ILIKE '%${filter}%'
-                OR recipes.teaches ILIKE '%${filter}%'
-            `
-
-			totalQuery = `(
-                SELECT count(*) FROM recipes
-                ${filterQuery}
-                ) AS total`
-		}
 
 		query = `
-            SELECT recipes.*, ${totalQuery}, count(chefs) AS total_chefs
+            SELECT recipes.*, ${totalQuery}, chefs.name AS author
             FROM recipes
             LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
-            ${filterQuery}
-            GROUP BY recipes.id LIMIT $1 OFFSET $2
+            GROUP BY recipes.id, chefs.name
+            ORDER BY title LIMIT $1 OFFSET $2
         `
 
 		db.query(query, [limit, offset], function (err, results) {
+			if (err) throw `Database error! ${err}`
+
+			callback(results.rows)
+		})
+	},
+
+	filterRecipes(params) {
+		const { filter, callback } = params
+
+		let query = `
+        SELECT recipes.*, chefs.name AS author
+            FROM recipes
+            LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
+            WHERE title ILIKE '%${filter}%'
+            OR chefs.name ILIKE '%${filter}%'`
+
+		db.query(query, function (err, results) {
 			if (err) throw `Database error! ${err}`
 
 			callback(results.rows)

@@ -2,6 +2,10 @@
 <title>Search - Foodfy</title>
 {% endblock %} {% block content %}
 
+<div data-filter="{{ filter }}">
+	<p class="search-searching">Buscando por "{{ filter }}"</p>
+</div>
+
 <main class="search-recipes_container">
 	{% for recipe in recipes %}
 	<div class="search-recipe" data-recipe_id="{{ recipe.id }}">
