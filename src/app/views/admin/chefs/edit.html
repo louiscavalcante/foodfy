@@ -7,7 +7,7 @@
             <p>Editando chef</p>
 
             <div class="admin-chefs-edit-buttons">
-                <button id="form-delete" formaction="/admin/chefs?_method=DELETE" type="submit">
+                <button id="form-delete" data-has_recipes="{{ recipesArray }}" formaction="/admin/chefs?_method=DELETE" type="submit">
                     Deletar
                 </button>
 

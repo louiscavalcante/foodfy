@@ -45,7 +45,9 @@ exports.edit = function (req, res) {
 	Chef.find(chefId, foundChef => {
 		if (!foundChef) return res.status(404).render('not-found')
 
-		return res.render('admin/chefs/edit', { chef: foundChef })
+		Chef.findRecipes(chefId, foundRecipes => {
+			return res.render('admin/chefs/edit', { chef: foundChef, recipesArray: foundRecipes })
+		})
 	})
 }
 

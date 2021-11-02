@@ -95,9 +95,16 @@ const formDelete = document.querySelector('#form-delete')
 
 if (formDelete) {
 	formDelete.addEventListener('click', function (event) {
-		const confirmation = confirm('Deseja realmente deletar?')
-		if (!confirmation) {
+		const hasRecipes = formDelete.getAttribute('data-has_recipes')
+        console.log(hasRecipes)
+		if (hasRecipes.length > 0) {
+			alert('Não é possível deletar Chefs que contém receitas cadastradas!')
 			event.preventDefault()
+		} else {
+			const confirmation = confirm('Deseja realmente deletar?')
+			if (!confirmation) {
+				event.preventDefault()
+			}
 		}
 	})
 }
