@@ -13,12 +13,12 @@ server.use(routes)
 
 server.set('view engine', 'html')
 
-nunjucks.configure('views', {
+nunjucks.configure('src/app/views', {
 	express: server,
 	autoescape: false, // Renders HTML inside variables
 	noCache: true,
 })
 
 server.listen(PORT, function () {
-	console.log(`Server is running at http://localhost:${PORT}`)
+	console.log(`Server is running...`)
 })

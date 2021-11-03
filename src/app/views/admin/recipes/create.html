@@ -1,0 +1,90 @@
+{% extends 'admin/layout.html' %} {% block head %}
+<title>Create Recipe - Foodfy Admin</title>
+{% endblock %} {% block content %}
+
+<form method="POST" action="/admin/recipes">
+	<div class="admin-recipes-create-button_container">
+		<p>Criando receita</p>
+
+		<div class="admin-recipes-create-buttons">
+			<button type="submit">Salvar receita</button>
+		</div>
+	</div>
+
+	<main class="admin-recipes-create-main_container">
+		<div class="admin-recipes-create-image">
+			<p>Imagem da receita</p>
+		</div>
+
+		<div class="admin-recipes-create-image_content">
+			<input type="url" name="image" placeholder="https://" />
+		</div>
+
+		<div class="admin-recipes-create-chef_select">
+			<p>Chef</p>
+		</div>
+
+		<div class="admin-recipes-create-chef_select_content">
+			<select name="chef_id">
+				<option value="empty" selected>Selecione um chef</option>
+				{% for chef in chefs %}
+				<option value="{{ chef.id }}">{{ chef.name }}</option>
+				{% endfor %}
+			</select>
+		</div>
+
+		<div class="admin-recipes-create-title">
+			<p>Nome da receita</p>
+		</div>
+
+		<div class="admin-recipes-create-title_content">
+			<input type="text" name="title" />
+		</div>
+
+		<div class="admin-recipes-create-ingredients">
+			<p>Ingredientes</p>
+		</div>
+
+		<div class="admin-recipes-create-ingredients_content add-ingredients-node">
+			<input
+				class="add-ingredients-input"
+				type="text"
+				name="ingredients"
+				value=""
+				placeholder="Escreva antes de adicionar novo"
+			/>
+		</div>
+
+		<div class="admin-recipes-create-add_new_ingredient">
+			<button type="button" class="add-ingredients">Adicionar novo ingrediente</button>
+		</div>
+
+		<div class="admin-recipes-create-preparation">
+			<p>Modo de prepararo</p>
+		</div>
+
+		<div class="admin-recipes-create-preparation_content add-preparation-node">
+			<input
+				class="add-preparation-input"
+				type="text"
+				name="preparation"
+				value=""
+				placeholder="Escreva antes de adicionar novo"
+			/>
+		</div>
+
+		<div class="admin-recipes-create-add_new_preparation">
+			<button type="button" class="add-preparation">Adicionar novo passo</button>
+		</div>
+
+		<div class="admin-recipes-create-information">
+			<p>Informações adicionais</p>
+		</div>
+
+		<div class="admin-recipes-create-information_content">
+			<textarea name="information">{{ recipe.information }}</textarea>
+		</div>
+	</main>
+</form>
+
+{% endblock %}

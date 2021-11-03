@@ -1,0 +1,51 @@
+{% extends 'admin/layout.html' %} {% block head %}
+<title>{{ recipe.title }} - Foodfy Admin</title>
+{% endblock %} {% block content %}
+
+<div class="admin-recipes-show-button_container">
+	<p>Receita: {{ recipe.title }}</p>
+	<button><a href="/admin/recipes/{{ recipe.id }}/edit">Editar receita</a></button>
+</div>
+
+<section class="admin-recipes-show-image_container">
+	<div class="admin-recipes-show-recipe_image">
+		<img src="{{ recipe.image }}" alt="Imagem de {{ recipe.title }}" />
+	</div>
+</section>
+
+<div class="admin-recipes-show-recipe_info">
+	<p>{{ recipe.title }}</p>
+	<p>por {{ recipe.author }}</p>
+</div>
+
+<main class="admin-recipes-show-main_container">
+	<div class="admin-recipes-show-ingredients">
+		<p>Ingredientes</p>
+	</div>
+
+	<ul class="admin-recipes-show-ingredients_content hideThis">
+		{% for ingredients in recipe.ingredients %}
+		<li>{{ ingredients }}</li>
+		{% endfor %}
+	</ul>
+
+	<div class="admin-recipes-show-preparation">
+		<p>Modo de prepararo</p>
+	</div>
+
+	<div class="admin-recipes-show-preparation_content hideThis">
+		{% for preparation in recipe.preparation %}
+		<li>{{ preparation }}</li>
+		{% endfor %}
+	</div>
+
+	<div class="admin-recipes-show-information">
+		<p>Informações adicionais</p>
+	</div>
+
+	<div class="admin-recipes-show-information_content hideThis">
+		<p>{{ recipe.information }}</p>
+	</div>
+</main>
+
+{% endblock %}

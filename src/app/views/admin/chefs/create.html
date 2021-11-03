@@ -1,0 +1,33 @@
+{% extends 'admin/layout.html' %} {% block head %}
+<title>Create Chef - Foodfy Admin</title>
+{% endblock %} {% block content %}
+
+<form method="POST" action="/admin/chefs">
+	<div class="admin-chefs-create-button_container">
+		<p>Criando chef</p>
+
+		<div class="admin-chefs-create-buttons">
+			<button type="submit">Salvar chef</button>
+		</div>
+	</div>
+
+	<main class="admin-chefs-create-main_container">
+		<div class="admin-chefs-create-name">
+			<p>Nome</p>
+		</div>
+
+		<div class="admin-chefs-create-name_content">
+			<input type="text" name="name" />
+		</div>
+
+		<div class="admin-chefs-create-image">
+			<p>Avatar</p>
+		</div>
+
+		<div class="admin-chefs-create-image_content">
+			<input type="url" name="avatar_url" placeholder="https://" />
+		</div>
+	</main>
+</form>
+
+{% endblock %}
