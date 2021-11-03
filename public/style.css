@@ -41,7 +41,7 @@ body {
 	margin: 36.1px auto 0 auto;
 	max-width: 940px;
 	display: grid;
-	grid-template-columns: 0fr 0fr 0fr 0fr 0fr;
+	grid-template-columns: 0fr 0fr 0fr 0fr 0fr 1fr;
 	align-items: center;
 }
 
@@ -78,6 +78,7 @@ body {
 
 .global-header_container header a:nth-child(5) {
 	margin-left: 30px;
+	margin-right: 30px;
 	text-decoration: none;
 	font-size: 1.6rem;
 	color: #111;
@@ -85,6 +86,38 @@ body {
 
 .global-header_container header a.activePage {
 	font-weight: bold;
+}
+
+.global-header-filter_container {
+	justify-self: end;
+}
+
+.global-header-filter_container form {
+	display: grid;
+	grid-template-columns: 246px 91px;
+	justify-self: end;
+	align-items: center;
+	gap: 0 8px;
+}
+
+.global-header-filter_container form input {
+	border: 1px solid #eee;
+	padding: 10px 15px;
+    font-size: 1.4rem;
+    color: #999;
+	font-weight: normal;
+	font-family: 'Roboto', sans-serif;
+    outline: none;
+}
+
+.global-header-filter_container form button {
+    padding: 9px 20px;
+    border-radius: 4px;
+    background-color: #6558c3;
+    color: #fff;
+	font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 1.6rem;
 }
 
 /*! -------------------- global footer -------------------- */
@@ -194,7 +227,7 @@ footer p {
 }
 
 .index-recipe_image {
-    height: 140px;
+	height: 140px;
 }
 
 .index-recipe_image img {
@@ -296,7 +329,7 @@ footer p {
 }
 
 .recipes-recipe_image {
-    height: 140px;
+	height: 140px;
 }
 
 .recipes-recipe_image img {
@@ -322,8 +355,8 @@ footer p {
 .recipes-pagination_container {
 	margin: 60px auto 50px auto;
 	max-width: 940px;
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .recipes-pagination a,
@@ -331,7 +364,7 @@ footer p {
 	color: #111;
 	text-decoration: none;
 	margin-right: 16px;
-    font-size: 1.6rem;
+	font-size: 1.6rem;
 }
 
 .recipes-pagination a:hover {
@@ -618,11 +651,11 @@ footer p {
 
 /*! -------------------- search -------------------- */
 .search-searching {
-    margin: 52px auto 0 auto;
-    max-width: 940px;
-    font-size: 2.4rem;
-    color: #111;
-    font-weight: bold;
+	margin: 52px auto 0 auto;
+	max-width: 940px;
+	font-size: 2.4rem;
+	color: #111;
+	font-weight: bold;
 }
 
 .search-recipes_container {
@@ -638,7 +671,7 @@ footer p {
 }
 
 .search-recipe_image {
-    height: 140px;
+	height: 140px;
 }
 
 .search-recipe_image img {

@@ -1,5 +1,26 @@
 {% extends 'layout.html' %} {% block head %}
 <title>Index - Foodfy</title>
+{% endblock %} {% block header %}
+
+<header>
+	<a href="/"><img src="/assets/logo.png" alt="Foodfy Logo" /></a>
+	<a class="activeSelector" href="/about">Sobre</a>
+	<a class="activeSelector" href="/recipes">Receitas</a>
+	<a class="activeSelector" href="/chefs">Chefs</a>
+	<a class="activeSelector" href="/admin/recipes">Admin</a>
+	<div class="global-header-filter_container">
+		<form action="/search" method="GET">
+			<input
+				type="text"
+				name="filter"
+				placeholder="Buscar uma receita"
+				value="{{ filter }}"
+			/>
+			<button type="submit">Buscar</button>
+		</form>
+	</div>
+</header>
+
 {% endblock %} {% block content %}
 
 <section class="index-ads">

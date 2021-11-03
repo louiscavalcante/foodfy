@@ -48,7 +48,7 @@ exports.search = function (req, res) {
 	const params = {
 		filter,
 		callback(foundRecipes) {
-			return res.render('search', { recipes: foundRecipes, filter})
+			return res.render('search', { recipes: foundRecipes, filter })
 		},
 	}
 	Global.filterRecipes(params)
