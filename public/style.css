@@ -703,12 +703,31 @@ footer p {
 }
 
 /*! -------------------- admin recipes index -------------------- */
-.admin-recipes-index-manage_recipes {
+.admin-recipes-index-manage_recipes_container {
 	margin: 50px auto 0 auto;
 	max-width: 940px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+.admin-recipes-index-manage_recipes_container p {
 	font-weight: bold;
 	font-size: 2.4rem;
 	color: #111;
+}
+
+.admin-recipes-index-manage_recipes_container button {
+	padding: 9px 20px;
+	background-color: #6558c3;
+	border-radius: 4px;
+	justify-self: end;
+}
+
+.admin-recipes-index-manage_recipes_container a {
+	color: #fff;
+	font-size: 1.6rem;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	text-decoration: none;
 }
 
 /*! -------------------- admin recipes index - recipes -------------------- */
@@ -1246,12 +1265,31 @@ footer p {
 }
 
 /*! -------------------- admin chefs index -------------------- */
-.admin-chefs-index-manage_chefs {
+.admin-recipes-index-manage_chefs_container {
 	margin: 50px auto 0 auto;
 	max-width: 940px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+.admin-recipes-index-manage_chefs_container p {
 	font-weight: bold;
 	font-size: 2.4rem;
 	color: #111;
+}
+
+.admin-recipes-index-manage_chefs_container button {
+	padding: 9px 20px;
+	background-color: #6558c3;
+	border-radius: 4px;
+	justify-self: end;
+}
+
+.admin-recipes-index-manage_chefs_container a {
+	color: #fff;
+	font-size: 1.6rem;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	text-decoration: none;
 }
 
 /*! -------------------- admin chefs index - chefs -------------------- */
