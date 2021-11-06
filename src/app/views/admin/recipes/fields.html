@@ -13,10 +13,8 @@
 
 	<div class="admin-recipes-edit-chef_select_content">
 		<select name="chef_id">
-			{% for chef in chefs %}
-			<option value="{{ chef.id }}"{ {% if chef.id == recipe.chef_id %} selected
-            {% endif %}>{{ chef.name }}</option>
-			{% endfor %}
+			{% for chef in chefs %} <option value="{{ chef.id }}"{ {% if chef.id == recipe.chef_id
+			%} selected {% endif %}>{{ chef.name }} {% endfor %}
 		</select>
 	</div>
 

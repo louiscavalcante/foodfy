@@ -3,22 +3,21 @@
 {% endblock %} {% block content %}
 
 <form method="POST">
-        <div class="admin-recipes-edit-button_container">
-            <p>Editando receita</p>
+	<div class="admin-recipes-edit-button_container">
+		<p>Editando receita</p>
 
-            <div class="admin-recipes-edit-buttons">
-                <button id="form-delete" formaction="/admin/recipes?_method=DELETE" type="submit">
-                    Deletar
-                </button>
+		<div class="admin-recipes-edit-buttons">
+			<button id="form-delete" formaction="/admin/recipes?_method=DELETE" type="submit">
+				Deletar
+			</button>
 
-                <button formaction="/admin/recipes?_method=PUT" type="submit">Salvar receita</button>
-            </div>
+			<button formaction="/admin/recipes?_method=PUT" type="submit">Salvar receita</button>
 		</div>
+	</div>
 
-		{% include 'admin/recipes/fields.html' %}
+	{% include 'admin/recipes/fields.html' %}
 
-	    <input type="hidden" name="id" value="{{ recipe.id }}" />
-    </div>
+	<input type="hidden" name="id" value="{{ recipe.id }}" />
 </form>
 
 {% endblock %}
