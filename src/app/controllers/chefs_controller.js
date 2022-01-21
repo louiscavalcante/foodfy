@@ -30,7 +30,7 @@ exports.show = function (req, res) {
 	const chefId = req.params.id
 
 	Chef.find(chefId, foundChef => {
-		if (!foundChef) return res.status(404).render('not-found')
+		if (!foundChef) return res.status(404).render('home/not-found')
 
 		Chef.findRecipes(chefId, foundRecipes => {
 			return res.render('admin/chefs/show', { chef: foundChef, recipes: foundRecipes })
@@ -42,7 +42,7 @@ exports.edit = function (req, res) {
 	const chefId = req.params.id
 
 	Chef.find(chefId, foundChef => {
-		if (!foundChef) return res.status(404).render('not-found')
+		if (!foundChef) return res.status(404).render('home/not-found')
 
 		Chef.findRecipes(chefId, foundRecipes => {
 			return res.render('admin/chefs/edit', { chef: foundChef, recipesArray: foundRecipes })

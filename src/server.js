@@ -1,7 +1,7 @@
 const express = require('express')
 const nunjucks = require('nunjucks')
 const methodOverride = require('method-override')
-const routes = require('./routes.js')
+const routes = require('./routes/index.js')
 
 const server = express()
 const PORT = process.env.PORT || 5000
