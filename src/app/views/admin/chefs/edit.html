@@ -1,24 +1,28 @@
-{% extends 'admin/layout.html' %} {% block head %}
-<title>Edit: {{ chef.name }} - Foodfy Admin</title>
-{% endblock %} {% block content %}
+{% extends 'layouts/admin.html' %}
 
-<form method="POST">
-        <div class="admin-chefs-edit-button_container">
-            <p>Editando chef</p>
+{% block head %}
+	<title>Edit: {{ chef.name }} - Foodfy Admin</title>
+{% endblock head %}
 
-            <div class="admin-chefs-edit-buttons">
-                <button id="form-delete" data-has_recipes="{{ recipesArray }}" formaction="/admin/chefs?_method=DELETE" type="submit">
-                    Deletar
-                </button>
+{% block content %}
 
-                <button formaction="/admin/chefs?_method=PUT" type="submit">Salvar chef</button>
-            </div>
+	<form method="POST">
+			<div class="admin-chefs-edit-button_container">
+				<p>Editando chef</p>
+
+				<div class="admin-chefs-edit-buttons">
+					<button id="form-delete" data-has_recipes="{{ recipesArray }}" formaction="/admin/chefs?_method=DELETE" type="submit">
+						Deletar
+					</button>
+
+					<button formaction="/admin/chefs?_method=PUT" type="submit">Salvar chef</button>
+				</div>
+			</div>
+
+			{% include 'admin/chefs/fields.html' %}
+
+			<input type="hidden" name="id" value="{{ chef.id }}" />
 		</div>
+	</form>
 
-		{% include 'admin/chefs/fields.html' %}
-
-	    <input type="hidden" name="id" value="{{ chef.id }}" />
-    </div>
-</form>
-
-{% endblock %}
+{% endblock content %}

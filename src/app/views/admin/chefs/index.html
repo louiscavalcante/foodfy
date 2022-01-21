@@ -1,26 +1,30 @@
-{% extends 'admin/layout.html' %} {% block head %}
-<title>Chefs - Foodfy Admin</title>
-{% endblock %} {% block content %}
+{% extends 'layouts/admin.html' %}
 
-<div class="admin-recipes-index-manage_recipes_container">
-	<p>Gerenciar chefs</p>
-	<button><a href="/admin/chefs/create">Novo chef</a></button>
-</div>
+{% block head %}
+	<title>Chefs - Foodfy Admin</title>
+{% endblock head %}
 
-<main class="admin-chefs-index-chefs_container">
-	{% for chef in chefs %}
-	<div class="admin-chefs-index-chef">
-		<div class="admin-chefs-index-chef_image">
-			<img src="{{ chef.avatar_url }}" alt="Imagem de {{ chef.name }}" />
-		</div>
-		<div class="admin-chefs-index-chef_info_container">
-			<p>{{ chef.name }}</p>
-			<div class="admin-chefs-index-chef_info_show" data-chef_id="{{ chef.id }}">
-				<a href="/admin/chefs/{{ chef.id }}">Visualizar</a>
-			</div>
-		</div>
+{% block content %}
+
+	<div class="admin-recipes-index-manage_recipes_container">
+		<p>Gerenciar chefs</p>
+		<button><a href="/admin/chefs/create">Novo chef</a></button>
 	</div>
-	{% endfor %}
-</main>
 
-{% endblock %}
+	<main class="admin-chefs-index-chefs_container">
+		{% for chef in chefs %}
+			<div class="admin-chefs-index-chef">
+				<div class="admin-chefs-index-chef_image">
+					<img src="{{ chef.avatar_url }}" alt="Imagem de {{ chef.name }}" />
+				</div>
+				<div class="admin-chefs-index-chef_info_container">
+					<p>{{ chef.name }}</p>
+					<div class="admin-chefs-index-chef_info_show" data-chef_id="{{ chef.id }}">
+						<a href="/admin/chefs/{{ chef.id }}">Visualizar</a>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</main>
+
+{% endblock content %}

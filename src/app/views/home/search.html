@@ -1,0 +1,51 @@
+{% extends 'layouts/main.html' %}
+
+{% block head %}
+	<title>Search - Foodfy</title>
+{% endblock head %}
+
+{% block header %}
+
+	<header>
+		<a href="/"><img src="/assets/logo.png" alt="Foodfy Logo" /></a>
+		<a class="activeSelector" href="/about">Sobre</a>
+		<a class="activeSelector" href="/recipes">Receitas</a>
+		<a class="activeSelector" href="/chefs">Chefs</a>
+		<a class="activeSelector" href="/admin/recipes">Admin</a>
+		<div class="global-header-filter_container">
+			<form action="/search" method="GET">
+				<input
+					type="text"
+					name="filter"
+					placeholder="Buscar uma receita"
+					value="{{ filter }}"
+				/>
+				<button type="submit">Buscar</button>
+			</form>
+		</div>
+	</header>
+
+{% endblock header %}
+{% block content %}
+
+	<div data-filter="{{ filter }}">
+		<p class="search-searching">Buscando por "{{ filter }}"</p>
+	</div>
+
+	<main class="search-recipes_container">
+		{% for recipe in recipes %}
+			<div class="search-recipe" data-recipe_id="{{ recipe.id }}">
+				<div class="search-recipe_image">
+					<img src="{{ recipe.image }}" alt="Imagem de {{ recipe.title }}" />
+				</div>
+				<div class="search-recipe_info">
+					<p>{{ recipe.title }}</p>
+				</div>
+				<div class="search-recipe_chef">
+					<p>por {{ recipe.author }}</p>
+				</div>
+			</div>
+		{% endfor %}
+	</main>
+
+{% endblock content %}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		{% block head %}
+			<title>Foodfy Admin</title>
+		{% endblock head %}
+
+		{% include "parts/styles.html" %}
+	</head>
+	<body>
+		<div class="admin-global-header_container">
+			{% block header %}
+				<header class="admin-global-header">
+					<a href="/"><img src="/assets/logo.png" alt="Foodfy Logo" /></a>
+					<a class="admin-activeSelector" href="/admin/recipes">RECEITAS</a>
+					<a class="admin-activeSelector" href="/admin/chefs">CHEFS</a>
+				</header>
+			{% endblock header %}
+		</div>
+
+		<div id="global-container">
+			{% block content %}
+			{% endblock content %}
+		</div>
+
+		<script src="/scripts.js"></script>
+	</body>
+</html>

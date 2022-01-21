@@ -14,8 +14,8 @@
 	<div class="admin-recipes-edit-chef_select_content">
 		<select name="chef_id">
 			{% for chef in chefs %}
-			<option value="{{ chef.id }}"{ {% if chef.id == recipe.chef_id %} selected
-            {% endif %}>{{ chef.name }}</option>
+				<option value="{{ chef.id }}"{ {% if chef.id == recipe.chef_id %} selected
+				{% endif %}>{{ chef.name }}</option>
 			{% endfor %}
 		</select>
 	</div>
@@ -34,13 +34,13 @@
 
 	<div class="admin-recipes-edit-ingredients_content add-ingredients-node">
 		{% for ingredients in recipe.ingredients %}
-		<input
-			class="add-ingredients-input"
-			type="text"
-			name="ingredients"
-			value="{{ ingredients }}"
-			placeholder="Escreva antes de adicionar novo"
-		/>
+			<input
+				class="add-ingredients-input"
+				type="text"
+				name="ingredients"
+				value="{{ ingredients }}"
+				placeholder="Escreva antes de adicionar novo"
+			/>
 		{% endfor %}
 	</div>
 
@@ -54,13 +54,13 @@
 
 	<div class="admin-recipes-edit-preparation_content add-preparation-node">
 		{% for preparation in recipe.preparation %}
-		<input
-			class="add-preparation-input"
-			type="text"
-			name="preparation"
-			value="{{ preparation }}"
-			placeholder="Escreva antes de adicionar novo"
-		/>
+			<input
+				class="add-preparation-input"
+				type="text"
+				name="preparation"
+				value="{{ preparation }}"
+				placeholder="Escreva antes de adicionar novo"
+			/>
 		{% endfor %}
 	</div>
 
@@ -73,8 +73,6 @@
 	</div>
 
 	<div class="admin-recipes-edit-information_content">
-		<textarea name="information" value="{{ recipe.information }}">
-{{ recipe.information }}</textarea
-		>
+		<textarea name="information" value="{{ recipe.information }}">{{ recipe.information }}</textarea>
 	</div>
 </main>
