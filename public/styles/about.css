@@ -1,0 +1,46 @@
+/*! -------------------- about -------------------- */
+.about-main {
+	margin: 50px auto 50px auto;
+	max-width: 940px;
+}
+
+.about-main_div1 {
+	font-size: 2.4rem;
+	font-weight: bold;
+	color: #111;
+}
+
+.about-main_article1 {
+	margin-top: 15px;
+	font-size: 1.8rem;
+	line-height: 2.8rem;
+	color: #444;
+}
+
+.about-main_div2 {
+	margin-top: 25px;
+	font-size: 2rem;
+	font-weight: bold;
+	color: #111;
+}
+
+.about-main_article2 {
+	margin-top: 15px;
+	font-size: 1.8rem;
+	line-height: 2.8rem;
+	color: #444;
+}
+
+.about-main_div3 {
+	margin-top: 25px;
+	font-size: 2rem;
+	font-weight: bold;
+	color: #111;
+}
+
+.about-main_article3 {
+	margin-top: 15px;
+	font-size: 1.8rem;
+	line-height: 2.8rem;
+	color: #444;
+}
